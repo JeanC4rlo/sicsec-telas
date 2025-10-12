@@ -1,0 +1,32 @@
+[
+    {
+        "tipo_matricula": "G",
+        "matricula": "20263005728",
+        "senha": "lib123"
+    },
+    {
+        "tipo_matricula": "G",
+        "matricula": "20263005718",
+        "senha": "lib456"
+    },
+    {
+        "tipo_matricula": "G",
+        "matricula": "20261000123",
+        "senha": "lib789"
+    },
+    {
+        "tipo_matricula": "T",
+        "matricula": "20262004567",
+        "senha": "lib321"
+    },
+    {
+        "tipo_matricula": "T",
+        "matricula": "20265009911",
+        "senha": "lib654"
+    },
+    {
+        "tipo_matricula": "D",
+        "matricula": "20264001234",
+        "senha": "lib987"
+    }
+]
