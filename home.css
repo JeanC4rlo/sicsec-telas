@@ -1,0 +1,226 @@
+/* Personalização da barra lateral da Home */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Inter;
+}
+
+html, body {
+    min-height: 100dvh;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+}
+
+body > header {
+    background-color: #003A69;
+    display: grid;
+    grid-template-rows: 10rem 1fr;
+    padding: 2rem;
+}
+
+.logos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    color: white;
+    user-select: none;
+}
+
+.logos img {
+    max-height: 4rem;
+    object-fit: contain;
+}
+
+.logos h1 {
+    font-size: 1.6rem;
+}
+
+#logo-cefet {
+    filter: brightness(0) invert(1);
+}
+
+nav {
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+nav button {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    filter: brightness(0) invert(1);
+    font-size: 1.15rem;
+    transition: 200ms ease all;
+}
+
+nav button img {
+    height: 2rem;
+}
+
+nav button:hover {
+    margin-left: 1rem;
+    cursor: pointer;
+}
+
+nav button.ativo {
+    font-weight: bold;
+}
+
+nav button::before {
+    content: "▶";
+    opacity: 0;
+    transition: 200ms ease all;
+}
+
+nav button.ativo::before {
+    opacity: 1;
+}
+
+h1 {
+    font-style: bold;
+    font-size: 3.5rem;
+}
+
+.sair {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: white;
+    color: black;
+    border: none;
+    padding: .5rem 0;
+    border-radius: 4px;
+    transition: 200ms ease all;
+}
+
+.sair:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+/* Configurações gerais */
+
+input {
+    border: 2px solid black;
+    border-radius: 0;
+    padding: 1rem;
+    font-size: 1rem;
+    transition: 500ms ease all;
+}
+
+input:focus {
+    outline: none;
+    border: 2px solid #003A69;
+    background-color: #003A69;
+    color: white;
+}
+
+select {
+    border: 2px solid black;
+    background-color: transparent;
+    padding: 0 1rem;
+    font-size: 1rem;
+    transition: 500ms ease all;
+} 
+
+select:focus {
+    border: 2px solid #003A69;
+    background-color: #003A69;
+    color: white;
+}
+
+main {
+    margin: auto 20rem;
+}
+
+section {
+    display: none;
+}
+
+section.ativo {
+    display: block !important;
+}
+
+#boletim table {
+    border: 2px solid;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#th-cabecalho-flex {
+    padding: 0 !important;
+}
+
+#boletim table th, td {
+    padding: 10px;
+}
+
+.cabecalho-flex {
+    display: flex;
+    justify-content: space-between;
+    background-color: #38b6ff;
+    color: white;
+    border: none;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+#biblioteca .login form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-top: 1rem;
+}
+
+#biblioteca .login form > * {
+    display: grid;
+    gap: .25rem;
+}
+
+#biblioteca .login form input {
+    height: 2.5rem;
+    width: 100%;
+}
+
+.matricula-wrapper {
+    grid-template-rows: auto 1fr;
+}
+
+.matricula {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: .5rem;
+}
+
+.logar {
+    border: none;
+    background-color: #003A69;
+    color: white;
+    font-weight: bolder;
+    font-size: 11pt;
+    padding: .75rem;
+    margin-top: .5rem;
+    transition: 200ms ease all;
+}
+
+.logar:hover {
+    cursor: pointer;
+    background-color: #0060B0;
+}
