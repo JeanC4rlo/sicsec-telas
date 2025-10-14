@@ -144,16 +144,20 @@ select:focus {
     color: white;
 }
 
-main {
-    margin: auto 20rem;
-}
-
 section {
-    display: none !important;
+    display: none;
 }
 
 section.ativo {
-    display: block !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.wrapper {
+    height: 100%;
+    width: 100%;
 }
 
 #boletim table {
@@ -196,17 +200,42 @@ section.ativo {
     cursor: pointer;
 }
 
-#biblioteca {
+#biblioteca .wrapper {
     display: grid;
     grid-template-rows: auto 1fr;
 }
 
-#biblioteca > div {
+#biblioteca .wrapper > div:not(.ativo) {
     display: none;
 }
 
-#biblioteca > div.ativo {
-    display: initial;
+#biblioteca .wrapper header {
+    display: flex;
+    justify-content: center;
+    height: 4rem;
+    padding: .5rem;
+    gap: .5rem;
+}
+
+#biblioteca .wrapper header button {
+    width: 100%;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+}
+
+#biblioteca .wrapper header button.ativo {
+    background-color: var(--secondary);
+    font-weight: bold;
+}
+
+#biblioteca .wrapper header button:hover {
+    cursor: pointer;
+}
+
+#biblioteca .wrapper > div {
+    margin: auto 0;
+    padding: 1rem 5vw;
 }
 
 #biblioteca .login form {

@@ -1,0 +1,102 @@
+[
+	{
+		"titulo": "Dom Casmurro",
+		"autor": "Machado de Assis",
+		"ano_publicacao": 1899,
+		"genero": "Romance",
+		"isbn": "9788572322539",
+		"descricao": "Um dos romances mais famosos da literatura brasileira, que narra a vida de Bento Santiago e sua suspeita de traição por parte de Capitu, sua esposa.",
+		"exemplares": [
+			{
+				"id_registro": "DC001",
+				"disponivel": true,
+				"biblioteca": "Araxá"
+			},
+			{
+				"id_registro": "DC002",
+				"disponivel": false,
+				"biblioteca": "Contagem"
+			}
+		]
+	},
+	{
+		"titulo": "1984",
+		"autor": "George Orwell",
+		"ano_publicacao": 1949,
+		"genero": "Ficção Científica",
+		"isbn": "9780451524935",
+		"descricao": "Um romance distópico que retrata um futuro totalitário onde o governo controla todos os aspectos da vida e até mesmo os pensamentos dos cidadãos.",
+		"exemplares": [
+			{
+				"id_registro": "1984A",
+				"disponivel": true,
+				"biblioteca": "Curvelo"
+			},
+			{
+				"id_registro": "1984B",
+				"disponivel": true,
+				"biblioteca": "Divinópolis"
+			},
+			{
+				"id_registro": "1984C",
+				"disponivel": false,
+				"biblioteca": "Gameleira"
+			}
+		]
+	},
+	{
+		"titulo": "O Senhor dos Anéis: A Sociedade do Anel",
+		"autor": "J.R.R. Tolkien",
+		"ano_publicacao": 1954,
+		"genero": "Fantasia",
+		"isbn": "9780547928210",
+		"descricao": "O primeiro volume da trilogia O Senhor dos Anéis, onde Frodo Bolseiro inicia sua jornada para destruir o Um Anel e enfrentar as forças do mal.",
+		"exemplares": [
+			{
+				"id_registro": "SDA001",
+				"disponivel": true,
+				"biblioteca": "Leopoldina"
+			}
+		]
+	},
+	{
+		"titulo": "A Menina que Roubava Livros",
+		"autor": "Markus Zusak",
+		"ano_publicacao": 2005,
+		"genero": "Drama",
+		"isbn": "9788535914849",
+		"descricao": "Durante a Segunda Guerra Mundial, a jovem Liesel encontra consolo nos livros que rouba e compartilha com seus vizinhos e o refugiado judeu escondido em sua casa.",
+		"exemplares": [
+			{
+				"id_registro": "MRL001",
+				"disponivel": false,
+				"biblioteca": "Nepomuceno"
+			},
+			{
+				"id_registro": "MRL002",
+				"disponivel": false,
+				"biblioteca": "Nova Gameleira"
+			}
+		]
+	},
+	{
+		"titulo": "Cem Anos de Solidão",
+		"autor": "Gabriel García Márquez",
+		"ano_publicacao": 1967,
+		"genero": "Realismo Mágico",
+		"isbn": "9780060883287",
+		"descricao": "A história da família Buendía ao longo de sete gerações na cidade fictícia de Macondo, explorando temas como tempo, solidão e destino.",
+		"exemplares": [
+			{
+				"id_registro": "CAS001",
+				"disponivel": true,
+				"biblioteca": "Nova Suíça"
+			},
+			{
+				"id_registro": "CAS002",
+				"disponivel": true,
+				"biblioteca": "Timóteo"
+			}
+		]
+	}
+]

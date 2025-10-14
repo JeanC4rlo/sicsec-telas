@@ -10,7 +10,7 @@ function highlightBibliotecaOption(tabId) {
 }
 
 function openBibliotecaTab(tabId) {
-    const tabs = document.querySelectorAll("#biblioteca > div");
+    const tabs = document.querySelectorAll("#biblioteca .wrapper > div");
 
     tabs.forEach(tab => {
         if (tab.classList.contains(tabId))
