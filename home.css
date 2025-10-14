@@ -251,3 +251,17 @@ section.ativo {
     cursor: pointer;
     background-color: var(--secondary);
 }
+
+#integrantes-turma h1 {
+    display: block;
+}
+
+#docentes, #discentes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5vw;
+}
+
+.subdiv {
+    flex: 0 0 30%;
+}
