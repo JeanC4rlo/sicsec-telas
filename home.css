@@ -149,7 +149,7 @@ main {
 }
 
 section {
-    display: none;
+    display: none !important;
 }
 
 section.ativo {
@@ -181,6 +181,32 @@ section.ativo {
     height: 100%;
     box-sizing: border-box;
     padding: 10px;
+}
+
+.cabecalho-flex button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    filter: brightness(0) invert(1);
+}
+
+.cabecalho-flex button:hover {
+    cursor: pointer;
+}
+
+#biblioteca {
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+#biblioteca > div {
+    display: none;
+}
+
+#biblioteca > div.ativo {
+    display: initial;
 }
 
 #biblioteca .login form {
