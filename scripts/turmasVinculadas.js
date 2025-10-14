@@ -1,7 +1,16 @@
 const abreJanelas = document.querySelectorAll(".abre-janela"); /*A pira é que vai abrir uma janelinha na página mostrando as turmas ao invés de só tacar num canto aleatório. Por isso do nome*/
 const fotoGenerica = "/imagens/foto-generica-perfil.png";
 
-const TURMA = [
+const TURMAS = [
+    ["Português",
+    {
+        "papel": "DOCENTE",
+        "foto": fotoGenerica,
+        "nome": "NOME DOCENTE",
+        "departamento": "DEPARTAMENTO DOCENTE",
+        "formacao": "FORMAÇÃO DOCENTE",
+        "email": "E-MAIL DOCENTE"
+    },
     {
         "papel": "DOCENTE",
         "foto": fotoGenerica,
@@ -25,29 +34,65 @@ const TURMA = [
         "departamento": "DEPARTAMENTO DISCENTE  2",
         "formacao": "FORMAÇÃO DISCENTE  2",
         "email": "E-MAIL DISCENTE  2"
-    }
+    },
+    {
+        "papel": "DISCENTE",
+        "foto": fotoGenerica,
+        "nome": "NOME DISCENTE  2",
+        "departamento": "DEPARTAMENTO DISCENTE  2",
+        "formacao": "FORMAÇÃO DISCENTE  2",
+        "email": "E-MAIL DISCENTE  2"
+    }],
+    ["Matemática",
+    {
+        "papel": "DOCENTE",
+        "foto": fotoGenerica,
+        "nome": "NOME DOCENTE",
+        "departamento": "DEPARTAMENTO DOCENTE",
+        "formacao": "FORMAÇÃO DOCENTE",
+        "email": "E-MAIL DOCENTE"
+    },
+    {
+        "papel": "DISCENTE",
+        "foto": fotoGenerica,
+        "nome": "NOME DISCENTE  2",
+        "departamento": "DEPARTAMENTO DISCENTE  2",
+        "formacao": "FORMAÇÃO DISCENTE  2",
+        "email": "E-MAIL DISCENTE  2"
+    }]
 ]
 
 abreJanelas.forEach(element => {
-    element.addEventListener('click', montarTabelaTurma);
+    element.addEventListener('click', () => montarTabelaTurma(element.textContent));
 });
 
-function montarTabelaTurma() {
-    const sessao = document.querySelector("#turmas");
-    const divDocente = document.createElement("div");
-    const divDiscente = document.createElement("div");
+function montarTabelaTurma(materia) {
+    const divIntegrantes = document.querySelector("#integrantes-turma");
+    const divDocente = document.querySelector("#docentes");
+    const divDiscente = document.querySelector("#discentes");
 
-    const h1Docente = document.createElement("h1");
-    h1Docente.textContent = "Docente (" + contadorDePapeis("docente") + ")";
-    divDiscente.appendChild(h1Docente);
+    let turma;
 
-    const h1Discente = document.createElement("h1");
-    h1Discente.textContent = "Discente (" + contadorDePapeis("discente") + ")";
-    divDocente.appendChild(h1Discente);
+    for(let i = 0; i < TURMAS.length; i++) {
+        if(TURMAS[i][0] === materia)
+            turma = TURMAS[i];
+    }
 
-    const subDivDocente = document.createElement("div");
-    TURMA.forEach(integrante => {
-        let div = (integrante.papel === "DOCENTE") ? subDivDocente : divDiscente;
+    divDocente.innerHTML = "";
+    divDiscente.innerHTML = "";
+
+    const h1Docente = document.querySelector("#h1-docentes");
+    h1Docente.textContent = "Docente (" + contadorDePapeis("docente", turma) + ")";
+
+    const h1Discente = document.querySelector("#h1-discentes");
+    h1Discente.textContent = "Discente (" + contadorDePapeis("discente", turma) + ")";
+
+    turma.forEach(integrante => {
+        if(integrante === materia)
+            return;
+        
+        let div = (integrante.papel === "DOCENTE") ? divDocente : divDiscente;
+        let subdiv = document.createElement("div");
         let foto = document.createElement("img");
         let nome = document.createElement("p");
         let matricula = document.createElement("p");
@@ -56,39 +101,40 @@ function montarTabelaTurma() {
         let formacao = document.createElement("p");
         let email = document.createElement("p");
 
+        subdiv.classList.add("subdiv");
+
         foto.src = integrante.foto;
-        div.appendChild(foto);
+        subdiv.appendChild(foto);
 
         nome.textContent = integrante.nome;
-        div.appendChild(nome);
+        subdiv.appendChild(nome);
 
         if (integrante.papel === "DOCENTE") {
             departamento.textContent = integrante.departamento;
-            div.appendChild(departamento);
+            subdiv.appendChild(departamento);
 
             formacao.textContent = integrante.formacao;
-            div.appendChild(formacao);
+            subdiv.appendChild(formacao);
         }
         else {
             matricula.textContent = integrante.departamento;
-            div.appendChild(matricula);
+            subdiv.appendChild(matricula);
 
             curso.textContent = integrante.formacao;
-            div.appendChild(curso);
+            subdiv.appendChild(curso);
         }
 
         email.textContent = integrante.email;
-        div.appendChild(email);
+        subdiv.appendChild(email);
+
+        div.appendChild(subdiv);
     })
-    divDocente.appendChild(subDivDocente);
-    sessao.appendChild(divDiscente);
-    sessao.appendChild(divDocente);
 }
 
-function contadorDePapeis(papel) {
+function contadorDePapeis(papel, turma) {
     let cont = 0;
     papel = papel.toUpperCase();
-    TURMA.forEach(integrante => {
+    turma.forEach(integrante => {
         if (integrante.papel === papel)
             cont++;
     })
