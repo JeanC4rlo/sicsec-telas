@@ -10,13 +10,15 @@ function highlightOption(sectionId) {
 }
 
 function openSection(sectionId) {
-    const sections = document.querySelectorAll("main section");
+    const sections = document.querySelectorAll("main > section");
 
     sections.forEach(section => {
         if (section.id === sectionId)
             section.classList.add("ativo");
         else
             section.classList.remove("ativo");
+
+        const tabs = section.querySelectorAll(".ativo");
     });
 
     localStorage.setItem("secaoAtiva", sectionId);

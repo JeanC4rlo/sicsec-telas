@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="base.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -12,6 +13,7 @@
         rel="stylesheet">
     <title>SICSEC</title>
     <script src="scripts/homeSections.js"></script>
+    <script src="scripts/bibliotecaSections.js"></script>
 </head>
 
 <body>
@@ -43,7 +45,7 @@
     <main>
         <section id="turmas">
             <table border="solid">
-                <thead>PlaceHolder matérias</thead>
+                <thead>Turmas Vinculadas</thead>
                 <tbody>
                     <tr>
                         <th>Componente Curricular</th>
@@ -51,12 +53,12 @@
                         <th>Horário</th>
                     </tr>
                     <tr>
-                        <td>Matéria 1</td>
+                        <td><span class="abre-janela">Matéria 1</span></td>
                         <td>Local 1</td>
                         <td>Horário 1</td>
                     </tr>
                     <tr>
-                        <td>Matéria 2</td>
+                        <td><span class="abre-janela">Matéria 2</span></td>
                         <td>Local 2</td>
                         <td>Horário 2</td>
                     </tr>
@@ -70,37 +72,52 @@
             </nav>
         </section>
         <section id="boletim">
-            <table id="tabelaBoletim" border="solid">
-                <caption>Dados dos Componentes Curriculares</caption>
+            <div class="wrapper">
+                <table id="tabelaBoletim" border="solid">
+                    <caption>Dados dos Componentes Curriculares</caption>
 
-                <thead>
-                    <tr>
-                        <th id="th-cabecalho-flex" colspan="8">
-                            <div class="cabecalho-flex">
-                                <button id="botaoEsq">esq</button>
-                                <p id="ano">20XX</p>
-                                <button id="botaoDir">dir</button>
+                    <thead>
+                        <tr>
+                            <th id="th-cabecalho-flex" colspan="8">
+                                <div class="cabecalho-flex">
+                                    <button id="botaoEsq">
+                                        <img src="imagens/home/seta-esquerda.svg" alt="">
+                                    </button>
+                                    <p id="ano">20XX</p>
+                                    <button id="botaoDir">
+                                        <img src="imagens/home/seta-direita.svg" alt="">
+                                    </button>
+                                </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <div id="dados-cabecalho-tabela">
+                                <th>Componente Curricular</th>
+                                <th>1º Bimestre</th>
+                                <th>2º Bimestre</th>
+                                <th>3º Bimestre</th>
+                                <th>4º Bimestre</th>
+                                <th>Faltas</th>
+                                <th>FINAL</th>
+                                <th>Situação</th>
                             </div>
-                        </th>
-                    </tr>
-                    <tr>
-                        <div id="dados-cabecalho-tabela">
-                            <th>Componente Curricular</th>
-                            <th>1º Bimestre</th>
-                            <th>2º Bimestre</th>
-                            <th>3º Bimestre</th>
-                            <th>4º Bimestre</th>
-                            <th>Faltas</th>
-                            <th>FINAL</th>
-                            <th>Situação</th>
-                        </div>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
         </section>
         <section id="biblioteca">
+            <header>
+                <button data-tab="acervo">Acervo</button>
+                <button data-tab="login">Login</button>
+            </header>
+
+            <!-- Seções da biblioteca -->
+            <div class="acervo">
+
+            </div>
             <div class="login">
                 <h1>Login</h1>
                 <form action="">
@@ -127,12 +144,9 @@
                     <button type="submit" class="logar">Entrar</button>
                 </form>
             </div>
-            <div class="interface">
-
-            </div>
         </section>
     </main>
 </body>
 <script src="scripts/tabelaDinamica.js"></script>
-
+<script src="scripts/turmasVinculadas.js"></script>
 </html>

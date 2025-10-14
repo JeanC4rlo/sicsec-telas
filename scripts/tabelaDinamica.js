@@ -22,10 +22,14 @@ const notasBD = [
     }
 ];
 
-const botaoBoletim = document.querySelector("#botaoAcessoBoletim")
+const botaoBoletim = document.querySelector("#botaoAcessoBoletim");
 const botaoEsq = document.querySelector("#botaoEsq");
 const botaoDir = document.querySelector("#botaoDir");
-let idx = 0;
+
+let anoAtual = new Date().getFullYear();
+let idx = notasBD.findIndex(nota => nota.ano === String(anoAtual));
+
+if (idx === -1) idx = notasBD.length - 1;
 
 botaoBoletim.addEventListener('click', () => preencherTabela());
 botaoEsq.addEventListener('click', () => passarAno(-1));
@@ -34,10 +38,10 @@ botaoDir.addEventListener('click', () => passarAno(1));
 function passarAno(incremento) {
     let novoIdx = idx + incremento;
 
-    if(novoIdx <= 2 && novoIdx >= 0) {
+    if (novoIdx >= 0 && novoIdx < notasBD.length) {
         idx = novoIdx;
     }
-    
+
     preencherTabela();
 }
 
@@ -48,24 +52,23 @@ function preencherTabela() {
     let notas = notasBD[idx];
 
     tbody.innerHTML = "";
-    
     ano.textContent = notas.ano;
 
-    for(let i = 0; i < notas.materias.length; i++) {
+    for (let i = 0; i < notas.materias.length; i++) {
         const tr = document.createElement("tr");
 
         notas.materias[i].forEach(v => {
             const td = document.createElement("td");
             td.textContent = v;
             tr.appendChild(td);
-        })
+        });
 
         const tdFaltas = document.createElement("td");
         tdFaltas.textContent = notas.faltas[i];
         tr.appendChild(tdFaltas);
 
         const tdNotaFinal = document.createElement("td");
-        tdNotaFinal.textContent = notas.final[i]; 
+        tdNotaFinal.textContent = notas.final[i];
         tr.appendChild(tdNotaFinal);
 
         const tdSituacao = document.createElement("td");
@@ -75,3 +78,5 @@ function preencherTabela() {
         tbody.appendChild(tr);
     }
 }
+
+document.addEventListener("DOMContentLoaded", preencherTabela);
