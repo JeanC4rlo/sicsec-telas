@@ -12,7 +12,7 @@ body {
     width: 100vw;
     height: 100vh;
     padding: 4rem;
-    background-color: #003A69;
+    background-color: var(--primary);
 }
 
 main {
@@ -78,14 +78,14 @@ main {
 
 .login form .inputs input:focus {
     outline: none;
-    border: 2px solid #003A69;
-    background-color: #003A69;
+    border: 2px solid var(--primary);
+    background-color: var(--primary);
     color: white;
 }
 
 .login form .inputs button {
     border: none;
-    background-color: #003A69;
+    background-color: var(--primary);
     color: white;
     font-weight: bolder;
     font-size: 11pt;
@@ -96,7 +96,7 @@ main {
 
 .login form .inputs button:hover {
     cursor: pointer;
-    background-color: #0060B0;
+    background-color: var(--secondary);
 }
 
 .banner {

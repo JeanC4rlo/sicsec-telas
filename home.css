@@ -17,7 +17,7 @@ body {
 }
 
 body > header {
-    background-color: #003A69;
+    background-color: var(--primary);
     display: grid;
     grid-template-rows: 10rem 1fr;
     padding: 2rem;
@@ -125,8 +125,8 @@ input {
 
 input:focus {
     outline: none;
-    border: 2px solid #003A69;
-    background-color: #003A69;
+    border: 2px solid var(--primary);
+    background-color: var(--primary);
     color: white;
 }
 
@@ -139,8 +139,8 @@ select {
 } 
 
 select:focus {
-    border: 2px solid #003A69;
-    background-color: #003A69;
+    border: 2px solid var(--primary);
+    background-color: var(--primary);
     color: white;
 }
 
@@ -172,8 +172,9 @@ section.ativo {
 
 .cabecalho-flex {
     display: flex;
-    justify-content: space-between;
-    background-color: #38b6ff;
+    justify-content: center;
+    gap: 4rem;
+    background-color: var(--primary);
     color: white;
     border: none;
     width: 100%;
@@ -211,7 +212,7 @@ section.ativo {
 
 .logar {
     border: none;
-    background-color: #003A69;
+    background-color: var(--primary);
     color: white;
     font-weight: bolder;
     font-size: 11pt;
@@ -222,5 +223,5 @@ section.ativo {
 
 .logar:hover {
     cursor: pointer;
-    background-color: #0060B0;
+    background-color: var(--secondary);
 }
