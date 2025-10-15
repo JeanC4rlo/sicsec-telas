@@ -25,7 +25,7 @@ function validate(cpf, senha) {
 
             if (perfil.senha === senha) {
                 console.log("Logado com sucesso");
-                window.location.href = `home.html?cpf=${encodeURIComponent(cpf)}`;
+                window.location.href = `html/home.html?cpf=${encodeURIComponent(cpf)}`;
             }
             else {
                 console.log("Senha incorreta");

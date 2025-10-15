@@ -1,4 +1,8 @@
 const fotoPadrao = "../imagens/foto-padrao.png";
+let listaTurmas;
+let materiaAtual;
+let localAtual;
+let horarioAtual;
 
 const TURMAS = [
     {
@@ -78,6 +82,8 @@ const TURMAS = [
 ];
 
 function selecionarTurma(turma, botao) {
+    console.log(turma);
+    console.log(botao);
     document.querySelectorAll(".botao-turma").forEach(b => b.classList.remove("ativo"));
     botao.classList.add("ativo");
     materiaAtual.textContent = turma.nome;
@@ -136,15 +142,17 @@ function criarCard(pessoa) {
 window.addEventListener("load", () => {
     
 });
+
 function initTurmas() {
 
-    const listaTurmas = document.querySelector("#turmas .lista-turmas");
-    const materiaAtual = document.querySelector(".value.materia");
-    const localAtual = document.querySelector(".value.local");
-    const horarioAtual = document.querySelector(".value.horario");
+    listaTurmas = document.querySelector("#turmas .lista-turmas");
+    materiaAtual = document.querySelector(".value.materia");
+    localAtual = document.querySelector(".value.local");
+    horarioAtual = document.querySelector(".value.horario");
 
     TURMAS.forEach(turma => {
-    const botao = document.createElement("button");
+        console.log(turma);
+        const botao = document.createElement("button");
         botao.textContent = turma.nome;
         botao.classList.add("botao-turma");
         botao.addEventListener("click", () => selecionarTurma(turma, botao));

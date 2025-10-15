@@ -36,9 +36,9 @@ async function loadSection(section) {
         return;
 
     const resposta = await fetch(`homeSections/${section.id}.html`);
-    const html = await resposta.text();
+    const _html = await resposta.text();
 
-    section.innerHTML = html;
+    section.querySelector(".wrapper").innerHTML = _html;
 
     window.sectionsToLoad--;
 
