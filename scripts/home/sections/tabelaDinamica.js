@@ -4,22 +4,16 @@ const notasBD = [
         "ano": "2023",
         "materias": [["Português", "2", "2", "2", "2"], ["Matemática", "2", "2", "2", "2"]],
         "faltas": ["0", "0"],
-        "final": ["8", "8"],
-        "situacao": ["REPRV", "REPRV"]
     },
     {
         "ano": "2024",
         "materias": [["Português", "10", "10", "10", "10"], ["Matemática", "10", "10", "10", "10"]],
         "faltas": ["0", "0"],
-        "final": ["8", "8"],
-        "situacao": ["REPRV", "REPRV"]
     },
     {
         "ano": "2025",
         "materias": [["Português", "20", "20", "20", "20"], ["Matemática", "20", "20", "20", "20"]],
         "faltas": ["0", "0"],
-        "final": ["8", "8"],
-        "situacao": ["REPRV", "REPRV"]
     }
 ];
 
@@ -45,10 +39,18 @@ function preencherTabela() {
     for (let i = 0; i < notas.materias.length; i++) {
         const tr = document.createElement("tr");
 
-        notas.materias[i].forEach(v => {
-            const td = document.createElement("td");
-            td.textContent = v;
-            tr.appendChild(td);
+        let soma = 0;
+        notas.materias[i].forEach((v, j) => {
+            if (j === 0) {
+                const td = document.createElement("td");
+                td.textContent = v;
+                tr.appendChild(td);
+            } else {
+                const td = document.createElement("td");
+                td.textContent = v;
+                tr.appendChild(td);
+                soma += Number(v);
+            }
         });
 
         const tdFaltas = document.createElement("td");
@@ -56,11 +58,11 @@ function preencherTabela() {
         tr.appendChild(tdFaltas);
 
         const tdNotaFinal = document.createElement("td");
-        tdNotaFinal.textContent = notas.final[i];
+        tdNotaFinal.textContent = soma;
         tr.appendChild(tdNotaFinal);
 
         const tdSituacao = document.createElement("td");
-        tdSituacao.textContent = notas.situacao[i];
+        tdSituacao.textContent = soma >= 60 ? "APROV" : "REPRV";
         tr.appendChild(tdSituacao);
 
         tbody.appendChild(tr);
