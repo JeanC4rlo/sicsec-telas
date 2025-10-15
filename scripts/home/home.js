@@ -24,7 +24,35 @@ function openSection(sectionId) {
     localStorage.setItem("secaoAtiva", sectionId);
 }
 
+function loadScripts() {
+    initBiblioteca();
+    initTabela();
+    initTurmas();
+}
+
+async function loadSection(section) {
+
+    if (!section)
+        return;
+
+    const resposta = await fetch(`homeSections/${section.id}.html`);
+    const html = await resposta.text();
+
+    section.innerHTML = html;
+
+    window.sectionsToLoad--;
+
+    if (!sectionsToLoad) loadScripts();
+
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+
+    let sections = document.querySelectorAll("section");
+    window.sectionsToLoad = sections.length;
+    sections.forEach(section => loadSection(section));
+    
+
     let sectionButtons = document.querySelectorAll("nav button");
     sectionButtons.forEach(button => {
         button.addEventListener("click", (e) => {
@@ -45,4 +73,5 @@ document.addEventListener("DOMContentLoaded", () => {
         highlightOption("boletim")
         openSection("boletim");
     }
+
 });
