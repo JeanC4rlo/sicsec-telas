@@ -1,0 +1,248 @@
+/* Container geral do acervo */
+#acervo {
+    display: flex;
+    flex-wrap: wrap;                
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 2rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    
+    max-height: 80vh;  /* limita a altura a 80% da tela */
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+/* Card individual de livro */
+#acervo .cardAcervo {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: 20% 60% 20%;
+    grid-template-areas:
+        "imagem titulo"
+        "imagem info"
+        "imagem botoes";
+
+    background-color: #fff;
+    border: 2px solid var(--primary);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1em;
+    width: 350px;
+    height: 240px; /* um pouco maior pra comportar o botão */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* Efeito hover */
+.cardAcervo:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Imagem do livro */
+.cardAcervo img {
+    grid-area: imagem;
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+/* Título do livro */
+.cardAcervo .title {
+    grid-area: titulo;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-left: 0.5rem;
+}
+
+/* Informações */
+.cardAcervo .info {
+    grid-area: info;
+    font-size: 0.85rem;
+    color: #444;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-left: 0.5rem;
+}
+
+/* Área de botões */
+.cardAcervo .buttons {
+    grid-area: botoes;
+    display: flex;
+    justify-content: space-between; /* espaço entre os botões */
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+/* Estilo dos botões */
+.cardAcervo button {
+    background-color: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.5em 0.9em;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-family: inherit;
+    transition: background-color 0.2s;
+}
+
+.cardAcervo button:hover {
+    background-color: var(--primary-dark);
+}
+
+/* Botão de reserva com destaque */
+.cardAcervo .btn-reservar {
+    background-color: var(--secondary, #2d9b4a); /* cor alternativa */
+    font-weight: 600;
+}
+
+
+.cardAcervo .btn-reservar:hover {
+    background-color: var(--secondary-dark, #247d3b);
+}
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+    #acervo {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #acervo .cardAcervo {
+        width: 90%;
+        height: 220px;
+        grid-template-columns: 35% 65%;
+    }
+}
+
+#meusLivros:not(.login) {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 1.5rem;
+    box-sizing: border-box;
+    overflow-x: auto;
+}
+
+/* Cada seção (Reservas e A Devolver) */
+#meusLivros:not(.login) > div {
+    flex: 1;
+    max-width: 45%;
+    background-color: #fff;
+    border: 2px solid var(--primary);
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    max-height: 70vh; /* scroll interno */
+    box-sizing: border-box;
+}
+
+/* Títulos das listas */
+#meusLivros:not(.login) > div::before {
+    content: attr(id);
+    display: block;
+    text-transform: capitalize;
+    font-weight: 600;
+    color: var(--primary);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* A lista de livros */
+#meusLivros:not(.login) ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#meusLivros:not(.login) .cardLivro {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "imagem titulo"
+        "imagem info"
+        "imagem btn";
+    align-items: center;
+    justify-items: start;
+
+    border: 2px solid var(--primary);
+    border-radius: 10px;
+    padding: 0.75rem;
+    width: 100%;
+    height: 14em;
+    background-color: #fafafa;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* Imagem do livro */
+#meusLivros:not(.login) .cardLivro img {
+    grid-area: imagem;
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+/* Título */
+#meusLivros:not(.login) .cardLivro .title {
+    grid-area: titulo;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #333;
+    margin-left: 0.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Informações */
+#meusLivros:not(.login) .cardLivro .info {
+    grid-area: info;
+    font-size: 0.9rem;
+    color: #444;
+    margin-left: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Botão de ação */
+#meusLivros:not(.login) .cardLivro button {
+    grid-area: btn;
+    justify-self: start;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--primary);
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.1s;
+    margin-left: 1rem;
+}
+
+#meusLivros:not(.login) .cardLivro button:hover {
+    background-color: var(--primary-hover, #0c66c2);
+    transform: scale(1.03);
+}

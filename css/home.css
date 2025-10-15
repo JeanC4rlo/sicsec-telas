@@ -250,19 +250,34 @@ td {
     padding: 1rem 5vw;
 }
 
-#biblioteca .login form {
+#biblioteca #login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#biblioteca #login h1 {
+    margin: auto;
+}
+
+#biblioteca #login form {
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
     margin-top: 1rem;
+    width: 30em;
+    border: 2px solid var(--primary);
+    border-radius: 5%;
+    padding: 1em;
 }
 
-#biblioteca .login form>* {
+#biblioteca #login form>* {
     display: grid;
     gap: .25rem;
 }
 
-#biblioteca .login form input {
+#biblioteca #login form input {
     height: 2.5rem;
     width: 100%;
 }
