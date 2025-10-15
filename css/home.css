@@ -7,7 +7,8 @@
     font-family: Inter;
 }
 
-html, body {
+html,
+body {
     min-height: 100dvh;
 }
 
@@ -16,7 +17,7 @@ body {
     grid-template-columns: 1fr 5fr;
 }
 
-body > header {
+body>header {
     background-color: var(--primary);
     display: grid;
     grid-template-rows: 10rem 1fr;
@@ -136,7 +137,7 @@ select {
     padding: 0 1rem;
     font-size: 1rem;
     transition: 500ms ease all;
-} 
+}
 
 select:focus {
     border: 2px solid var(--primary);
@@ -170,7 +171,8 @@ section.ativo {
     padding: 0 !important;
 }
 
-#boletim table th, td {
+#boletim table th,
+td {
     padding: 10px;
 }
 
@@ -205,7 +207,7 @@ section.ativo {
     grid-template-rows: auto 1fr;
 }
 
-#biblioteca .wrapper > div:not(.ativo) {
+#biblioteca .wrapper>div:not(.ativo) {
     display: none;
 }
 
@@ -233,7 +235,7 @@ section.ativo {
     cursor: pointer;
 }
 
-#biblioteca .wrapper > div {
+#biblioteca .wrapper>div {
     margin: auto 0;
     padding: 1rem 5vw;
 }
@@ -245,7 +247,7 @@ section.ativo {
     margin-top: 1rem;
 }
 
-#biblioteca .login form > * {
+#biblioteca .login form>* {
     display: grid;
     gap: .25rem;
 }
@@ -285,7 +287,8 @@ section.ativo {
     display: block;
 }
 
-#docentes, #discentes {
+#docentes,
+#discentes {
     display: flex;
     flex-wrap: wrap;
     gap: 5vw;

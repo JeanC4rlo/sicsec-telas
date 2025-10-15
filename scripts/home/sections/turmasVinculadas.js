@@ -62,10 +62,6 @@ const TURMAS = [
     }]
 ]
 
-abreJanelas.forEach(element => {
-    element.addEventListener('click', () => montarTabelaTurma(element.textContent));
-});
-
 function montarTabelaTurma(materia) {
     const divIntegrantes = document.querySelector("#integrantes-turma");
     const divDocente = document.querySelector("#docentes");
@@ -139,4 +135,10 @@ function contadorDePapeis(papel, turma) {
             cont++;
     })
     return cont;
+}
+
+function initTurmas() {
+    abreJanelas.forEach(element => {
+        element.addEventListener('click', () => montarTabelaTurma(element.textContent));
+    });
 }
