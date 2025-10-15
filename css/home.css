@@ -14,7 +14,7 @@ body {
 
 body {
     display: grid;
-    grid-template-columns: 18rem 5fr;
+    grid-template-columns: 20rem 5fr;
 }
 
 body>header {
