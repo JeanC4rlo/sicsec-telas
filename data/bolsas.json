@@ -1,0 +1,101 @@
+[
+  {
+    "codigo": "PVC312-2023",
+    "titulo": "Uso de sensores remotos para mapeamento de áreas verdes urbanas",
+    "introducao_justificativa": "O uso de sensores remotos permite mapear áreas verdes urbanas, contribuindo para o planejamento urbano sustentável e para o ensino de Geografia. Esses dados ajudam na análise da cobertura vegetal, qualidade do ar e impactos ambientais nas cidades.",
+    "objetivos": {
+      "geral": "Mapear e analisar áreas verdes urbanas utilizando sensores remotos para elaborar materiais didáticos para escolas.",
+      "especificos": [
+        "Coletar e processar imagens de satélite e dados geoespaciais.",
+        "Identificar áreas verdes e seu impacto no ambiente urbano.",
+        "Avaliar o uso do material pelos professores de Geografia."
+      ]
+    },
+    "metodologia": "Levantamento bibliográfico sobre cartografia digital e sensoriamento remoto, coleta de imagens de satélite, processamento em software GIS livre, elaboração de mapas temáticos e avaliação do material com professores.",
+    "habilidades_adquiridas": "Levantamento bibliográfico, análise de dados geoespaciais, elaboração de mapas digitais, produção de relatório científico e comunicação dos resultados.",
+    "referencias": [
+      "PEREIRA, Eduardo et al. Sensoriamento remoto para análise ambiental urbana. Revista Brasileira de Geografia, 2021.",
+      "CAVALCANTI, L. de S. Geografia e práticas de ensino. Goiânia: Alternativa, 2002."
+    ],
+    "orientador": "Mariana Souza Leite",
+    "centro": "Campus Nova Suíça - Belo Horizonte",
+    "departamento": "Departamento de Geociências - NS",
+    "discente": "20242001234 - Ana Beatriz Ferreira",
+    "tipo_bolsa": "PIBIC-Jr - CNPq (IC)",
+    "status": "EM ANDAMENTO",
+    "edital": "EDITAL DPPG Nº 82/2023 - PIBIC-Jr CNPq",
+    "cota": "PIBIC-Jr CNPq 2024-2025 (01/03/2024 a 28/02/2025)",
+    "area_conhecimento": {
+      "grande_area": "Ciências Humanas",
+      "area": "Geografia",
+      "subarea": "Geografia Física",
+      "especialidade": "Sensoriamento Remoto"
+    }
+  },
+  {
+    "codigo": "PVC421-2023",
+    "titulo": "Modelagem matemática de epidemias em ambientes urbanos",
+    "introducao_justificativa": "O estudo de epidemias em cidades permite desenvolver modelos que auxiliam na prevenção e controle de doenças. Modelos matemáticos ajudam a entender a propagação e impactos sociais das epidemias.",
+    "objetivos": {
+      "geral": "Desenvolver modelos matemáticos para simular a propagação de epidemias em ambientes urbanos.",
+      "especificos": [
+        "Coletar dados históricos de epidemias urbanas.",
+        "Construir modelos matemáticos para simulação de propagação.",
+        "Avaliar estratégias de mitigação baseadas nos modelos."
+      ]
+    },
+    "metodologia": "Levantamento de dados epidemiológicos, implementação de modelos matemáticos em software computacional, análise de cenários de propagação e elaboração de material didático para ensino de Matemática Aplicada.",
+    "habilidades_adquiridas": "Modelagem matemática, programação, análise de dados, comunicação científica e elaboração de relatórios técnicos.",
+    "referencias": [
+      "ANDRADE, F. Modelagem matemática em epidemiologia urbana. Revista de Matemática Aplicada, 2022.",
+      "CAVALCANTI, L. Geografia escolar e a cidade. Campinas: Papirus, 2012."
+    ],
+    "orientador": "Felipe Andrade Costa",
+    "centro": "Diretoria do Campus Contagem",
+    "departamento": "Departamento de Matemática - CT",
+    "discente": "20242004321 - Lucas Martins Silva",
+    "tipo_bolsa": "PIBIC-Jr - FAPEMIG (IC)",
+    "status": "FINALIZADO",
+    "edital": "EDITAL DPPG Nº 81/2023 - PIBIC-Jr FAPEMIG",
+    "cota": "PIBIC-Jr FAPEMIG 2024-2025 (01/02/2024 a 28/02/2025)",
+    "area_conhecimento": {
+      "grande_area": "Ciências Exatas e da Terra",
+      "area": "Matemática Aplicada",
+      "subarea": "Modelagem Matemática",
+      "especialidade": ""
+    }
+  },
+  {
+    "codigo": "PVC477-2023",
+    "titulo": "Uso de dados geoespaciais para elaboração de atlas escolar de Belo Horizonte",
+    "introducao_justificativa": "Os dados geoespaciais são fundamentais para compreensão do espaço urbano. Permitem mapear características urbanas e ambientais, contribuindo para a educação e planejamento urbano sustentável. Este projeto visa desenvolver um atlas escolar digital de Belo Horizonte.",
+    "objetivos": {
+      "geral": "Desenvolver um atlas escolar digital utilizando dados geoespaciais de Belo Horizonte.",
+      "especificos": [
+        "Identificar temas geográficos essenciais para o município.",
+        "Elaborar mapas de aspectos sociais, ambientais, econômicos e políticos.",
+        "Avaliar a pertinência e adequação dos mapas com professores."
+      ]
+    },
+    "metodologia": "Revisão bibliográfica, análise dos dados geoespaciais do Geoportal de Belo Horizonte, elaboração de mapas em QGIS, montagem do atlas digital, avaliação pelos professores e divulgação para escolas públicas.",
+    "habilidades_adquiridas": "Pesquisa científica, cartografia digital, análise de dados geoespaciais, elaboração de atlas digital e produção de relatórios científicos.",
+    "referencias": [
+      "CALLAI, Helena Copetti. A formação do profissional da Geografia: o professor. Ijuí: Unijuí, 2013.",
+      "REZENDE, Lidiane Nery de; BORGES, Karla Albuquerque de Vasconcelos. Infraestrutura de Dados Espaciais Municipal da Prefeitura de Belo Horizonte/MG. Anais 7º Simpósio de Geotecnologias no Pantanal, 2018."
+    ],
+    "orientador": "Ricardo José Gontijo Azevedo",
+    "centro": "Diretoria do Campus Nova Suíça - Belo Horizonte",
+    "departamento": "Departamento de Geociências - NS",
+    "discente": "20242007890 - Mariana Lopes Costa",
+    "tipo_bolsa": "PIBIC-Jr - FAPEMIG (IC)",
+    "status": "FINALIZADO",
+    "edital": "EDITAL DPPG Nº 82/2023 - PIBIC-Jr FAPEMIG",
+    "cota": "PIBIC-Jr FAPEMIG 2024-2025 (01/02/2024 a 28/02/2025)",
+    "area_conhecimento": {
+      "grande_area": "Ciências Humanas",
+      "area": "Geografia",
+      "subarea": "Geografia Humana",
+      "especialidade": ""
+    }
+  }
+]
