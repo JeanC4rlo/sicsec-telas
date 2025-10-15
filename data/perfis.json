@@ -1,5 +1,18 @@
 [
     {
+        "cpf": "000",
+        "senha": "000",
+        "matricula": "202543493908",
+        "registro": "NS",
+        "nome": "Teste da Silva Amin",
+        "email": "teste.silvaadmin@example.com",
+        "telefone": "(31) 98808-0001",
+        "curso": "Engenharia de Software",
+        "data_nascimento": "2008-04-23",
+        "ativo": true,
+        "admin": true
+    },
+    {
         "cpf": "123",
         "senha": "123",
         "matricula": "20263005728",
@@ -9,7 +22,8 @@
         "telefone": "(31) 98888-0001",
         "curso": "Engenharia de Software",
         "data_nascimento": "2008-02-01",
-        "ativo": true
+        "ativo": false,
+        "admin": false
     },
     {
         "cpf": "29545829605",
@@ -21,7 +35,8 @@
         "telefone": "(31) 98888-0001",
         "curso": "Engenharia de Software",
         "data_nascimento": "2002-04-18",
-        "ativo": true
+        "ativo": false,
+        "admin": false
     },
     {
         "cpf": "12345678901",
@@ -33,7 +48,8 @@
         "telefone": "(31) 98888-0002",
         "curso": "Sistemas de Informação",
         "data_nascimento": "2003-07-09",
-        "ativo": true
+        "ativo": false,
+        "admin": false
     },
     {
         "cpf": "40278915032",
@@ -45,7 +61,8 @@
         "telefone": "(31) 98888-0003",
         "curso": "Eletrotécnica",
         "data_nascimento": "2001-11-30",
-        "ativo": true
+        "ativo": false,
+        "admin": false
     },
     {
         "cpf": "06823490547",
@@ -57,7 +74,8 @@
         "telefone": "(31) 98888-0004",
         "curso": "Administração",
         "data_nascimento": "1999-02-14",
-        "ativo": false
+        "ativo": false,
+        "admin": false
     },
     {
         "cpf": "55012344066",
@@ -69,7 +87,8 @@
         "telefone": "(31) 98888-0005",
         "curso": "Mecatrônica",
         "data_nascimento": "2000-09-03",
-        "ativo": true
+        "ativo": false,
+        "admin": false
     },
     {
         "cpf": "78100433219",
@@ -81,7 +100,8 @@
         "telefone": "(31) 98888-0006",
         "curso": "Design Digital",
         "data_nascimento": "2004-01-21",
-        "ativo": true
+        "ativo": false,
+        "admin": false
     },
     {
         "cpf": "31988766500",
@@ -93,7 +113,8 @@
         "telefone": "(31) 98888-0007",
         "curso": "Redes de Computadores",
         "data_nascimento": "2002-12-11",
-        "ativo": true
+        "ativo": false,
+        "admin": false
     },
     {
         "cpf": "90432111055",
@@ -105,7 +126,8 @@
         "telefone": "(31) 98888-0008",
         "curso": "Química",
         "data_nascimento": "2001-05-27",
-        "ativo": false
+        "ativo": false,
+        "admin": false
     },
     {
         "cpf": "66543277888",
@@ -117,7 +139,8 @@
         "telefone": "(31) 98888-0009",
         "curso": "Física",
         "data_nascimento": "1998-08-02",
-        "ativo": true
+        "ativo": false,
+        "admin": false
     },
     {
         "cpf": "22700933411",
@@ -129,7 +152,8 @@
         "telefone": "(31) 98888-0010",
         "curso": "Biotecnologia",
         "data_nascimento": "2000-03-15",
-        "ativo": true
+        "ativo": false,
+        "admin": false
     },
     {
         "cpf": "49877000123",
@@ -141,7 +165,8 @@
         "telefone": "(31) 98888-0011",
         "curso": "Logística",
         "data_nascimento": "1997-10-06",
-        "ativo": true
+        "ativo": false,
+        "admin": false
     },
     {
         "cpf": "33055699044",
@@ -153,6 +178,7 @@
         "telefone": "(31) 98888-0012",
         "curso": "Artes Visuais",
         "data_nascimento": "2003-06-19",
-        "ativo": true
+        "ativo": false,
+        "admin": false
     }
 ]
