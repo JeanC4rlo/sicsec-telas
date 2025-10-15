@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,8 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap"
-      rel="stylesheet"
-    />
+    rel="stylesheet" />
     <title>SICSEC</title>
     <script src="scripts/homeSections.js"></script>
     <script src="scripts/bibliotecaSections.js"></script>
@@ -27,13 +27,13 @@
           <img src="imagens/home/boletim.svg" alt="" />
           Boletim
         </button>
+      <button data-section="turmas">
+        <img src="imagens/home/turmas.svg" alt="" />
+        Turmas
+      </button>
         <button data-section="biblioteca">
           <img src="imagens/home/biblioteca.svg" alt="" />
           Biblioteca
-        </button>
-        <button data-section="turmas">
-          <img src="imagens/home/turmas.svg" alt="" />
-          Turmas
         </button>
         <button data-section="bolsas">
           <img src="imagens/home/bolsas.svg" alt="" />
@@ -43,40 +43,7 @@
       <a href="index.html" class="sair">Sair</a>
     </header>
     <main>
-        <section id="turmas">
-            <table border="solid">
-                <thead>Turmas Vinculadas</thead>
-                <tbody>
-                    <tr>
-                        <th>Componente Curricular</th>
-                        <th>Local</th>
-                        <th>Horário</th>
-                    </tr>
-                    <tr>
-                        <td><span class="abre-janela">Português</span></td>
-                        <td>Local 1</td>
-                        <td>Horário 1</td>
-                    </tr>
-                    <tr>
-                        <td><span class="abre-janela">Matemática</span></td>
-                        <td>Local 2</td>
-                        <td>Horário 2</td>
-                    </tr>
-
-                </tbody>
-            </table>
-            <nav>
-                <a href="" data-tab="perfil">Perfil</a><br>
-                <a href="" data-tab="noticias">Notícias</a><br>
-                <a href="" data-tab="materias">Matérias</a><br>
-            </nav>
-            <div id="integrantes-turma">
-                <h1 id="h1-docentes"></h1>
-                <div id="docentes"></div>
-                <h1 id="h1-discentes"></h1>
-                <div id="discentes"></div>
-            </div>
-        </section>
+    <!-- Boletim -->
         <section id="boletim">
             <div class="wrapper">
                 <table id="tabelaBoletim" border="solid">
@@ -114,43 +81,60 @@
                 </table>
             </div>
         </section>
-        <section id="biblioteca">
-            <header>
-                <button data-tab="acervo">Acervo</button>
-                <button data-tab="login">Login</button>
-            </header>
 
-            <thead>
-              <tr>
-                <th id="th-cabecalho-flex" colspan="8">
-                  <div class="cabecalho-flex">
-                    <button id="botaoEsq">
-                      <img src="imagens/home/seta-esquerda.svg" alt="" />
-                    </button>
-                    <p id="ano">20XX</p>
-                    <button id="botaoDir">
-                      <img src="imagens/home/seta-direita.svg" alt="" />
-                    </button>
-                  </div>
-                </th>
-              </tr>
-              <tr>
-                <div id="dados-cabecalho-tabela">
-                  <th>Componente Curricular</th>
-                  <th>1º Bimestre</th>
-                  <th>2º Bimestre</th>
-                  <th>3º Bimestre</th>
-                  <th>4º Bimestre</th>
-                  <th>Faltas</th>
-                  <th>FINAL</th>
-                  <th>Situação</th>
+    <!-- Turmas -->
+    <section id="turmas">
+      <div class="wrapper">
+            <header>
+          <div class="info-turma-wrapper">
+            <h2>Informações da turma atual</h2>
+            <div class="info-turma">
+              <div class="label-wrapper">
+                <img src="imagens/home/materia.svg" alt="">
+                <div class="info">
+                  <span class="label">Matéria</span>
+                  <span class="value materia">Nenhuma</span>
                 </div>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
+              </div>
+
+              <div class="label-wrapper">
+                <img src="imagens/home/local.svg" alt="">
+                <div class="info">
+                  <span class="label">Local</span>
+                  <span class="value local">Nenhum</span>
+                </div>
+                  </div>
+
+              <div class="label-wrapper">
+                <img src="imagens/home/horario.svg" alt="">
+                <div class="info">
+                  <span class="label">Horário</span>
+                  <span class="value horario">Nenhum</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lista-turmas-wrapper">
+            <h2>Lista de turmas vinculadas</h2>
+            <div class="lista-turmas"></div>
+          </div>
+
+        </header>
+        <div id="integrantes-turma">
+          <div class="docentes-wrapper">
+            <h1 id="h1-docentes"></h1>
+            <div id="docentes"></div>
+          </div>
+          <div class="discentes-wrapper">
+            <h1 id="h1-discentes"></h1>
+            <div id="discentes"></div>
+          </div>
+        </div>
         </div>
       </section>
+
+    <!-- Biblioteca -->
       <section id="biblioteca">
         <div class="wrapper">
           <header>
@@ -160,6 +144,7 @@
 
           <!-- Seções da biblioteca -->
           <div class="acervo"></div>
+
           <div class="login">
             <h1>Login</h1>
             <form action="">

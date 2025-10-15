@@ -1,142 +1,156 @@
-const abreJanelas = document.querySelectorAll(".abre-janela"); /*A pira é que vai abrir uma janelinha na página mostrando as turmas ao invés de só tacar num canto aleatório. Por isso do nome*/
-const fotoGenerica = "/imagens/foto-generica-perfil.png";
+const fotoPadrao = "../imagens/foto-padrao.png";
 
 const TURMAS = [
-    ["Português",
     {
-        "papel": "DOCENTE",
-        "foto": fotoGenerica,
-        "nome": "NOME DOCENTE",
-        "departamento": "DEPARTAMENTO DOCENTE",
-        "formacao": "FORMAÇÃO DOCENTE",
-        "email": "E-MAIL DOCENTE"
+        nome: "Português",
+        local: "Sala 101",
+        horario: "Segunda e Quarta - 08:00 às 09:40",
+        docentes: [
+            {
+                papel: "DOCENTE",
+                foto: fotoPadrao,
+                nome: "Marina Albuquerque",
+                departamento: "Linguagens e Comunicação",
+                formacao: "Mestrado em Letras",
+                email: "marina.albuquerque@escola.edu.br"
+            },
+            {
+                papel: "DOCENTE",
+                foto: fotoPadrao,
+                nome: "Carlos Nogueira",
+                departamento: "Linguagens e Comunicação",
+                formacao: "Doutorado em Literatura Brasileira",
+                email: "carlos.nogueira@escola.edu.br"
+            }
+        ],
+        discentes: [
+            {
+                papel: "DISCENTE",
+                foto: fotoPadrao,
+                nome: "Laura Mendes",
+                matricula: "20230012",
+                curso: "Ensino Médio Integrado",
+                email: "laura.mendes@aluno.escola.edu.br"
+            },
+            {
+                papel: "DISCENTE",
+                foto: fotoPadrao,
+                nome: "Rafael Silva",
+                matricula: "20230045",
+                curso: "Ensino Médio Integrado",
+                email: "rafael.silva@aluno.escola.edu.br"
+            },
+            {
+                papel: "DISCENTE",
+                foto: fotoPadrao,
+                nome: "Jéssica Oliveira",
+                matricula: "20230078",
+                curso: "Ensino Médio Integrado",
+                email: "jessica.oliveira@aluno.escola.edu.br"
+            }
+        ]
     },
     {
-        "papel": "DOCENTE",
-        "foto": fotoGenerica,
-        "nome": "NOME DOCENTE",
-        "departamento": "DEPARTAMENTO DOCENTE",
-        "formacao": "FORMAÇÃO DOCENTE",
-        "email": "E-MAIL DOCENTE"
-    },
-    {
-        "papel": "DISCENTE",
-        "foto": fotoGenerica,
-        "nome": "NOME DISCENTE 1",
-        "departamento": "DEPARTAMENTO DISCENTE 1",
-        "formacao": "FORMAÇÃO DISCENTE 1",
-        "email": "E-MAIL DISCENTE 1"
-    },
-    {
-        "papel": "DISCENTE",
-        "foto": fotoGenerica,
-        "nome": "NOME DISCENTE  2",
-        "departamento": "DEPARTAMENTO DISCENTE  2",
-        "formacao": "FORMAÇÃO DISCENTE  2",
-        "email": "E-MAIL DISCENTE  2"
-    },
-    {
-        "papel": "DISCENTE",
-        "foto": fotoGenerica,
-        "nome": "NOME DISCENTE  2",
-        "departamento": "DEPARTAMENTO DISCENTE  2",
-        "formacao": "FORMAÇÃO DISCENTE  2",
-        "email": "E-MAIL DISCENTE  2"
-    }],
-    ["Matemática",
-    {
-        "papel": "DOCENTE",
-        "foto": fotoGenerica,
-        "nome": "NOME DOCENTE",
-        "departamento": "DEPARTAMENTO DOCENTE",
-        "formacao": "FORMAÇÃO DOCENTE",
-        "email": "E-MAIL DOCENTE"
-    },
-    {
-        "papel": "DISCENTE",
-        "foto": fotoGenerica,
-        "nome": "NOME DISCENTE  2",
-        "departamento": "DEPARTAMENTO DISCENTE  2",
-        "formacao": "FORMAÇÃO DISCENTE  2",
-        "email": "E-MAIL DISCENTE  2"
-    }]
-]
+        nome: "Matemática",
+        local: "Laboratório 2",
+        horario: "Terça e Quinta - 10:00 às 11:40",
+        docentes: [
+            {
+                papel: "DOCENTE",
+                foto: fotoPadrao,
+                nome: "Pedro Andrade",
+                departamento: "Ciências Exatas",
+                formacao: "Mestrado em Matemática Aplicada",
+                email: "pedro.andrade@escola.edu.br"
+            }
+        ],
+        discentes: [
+            {
+                papel: "DISCENTE",
+                foto: fotoPadrao,
+                nome: "Lucas Ferreira",
+                matricula: "20230101",
+                curso: "Ensino Médio Integrado",
+                email: "lucas.ferreira@aluno.escola.edu.br"
+            }
+        ]
+    }
+];
 
-abreJanelas.forEach(element => {
-    element.addEventListener('click', () => montarTabelaTurma(element.textContent));
+const listaTurmas = document.querySelector("#turmas .lista-turmas");
+const materiaAtual = document.querySelector(".value.materia");
+const localAtual = document.querySelector(".value.local");
+const horarioAtual = document.querySelector(".value.horario");
+
+TURMAS.forEach(turma => {
+    const botao = document.createElement("button");
+    botao.textContent = turma.nome;
+    botao.classList.add("botao-turma");
+    botao.addEventListener("click", () => selecionarTurma(turma, botao));
+    listaTurmas.appendChild(botao);
 });
 
-function montarTabelaTurma(materia) {
-    const divIntegrantes = document.querySelector("#integrantes-turma");
+function selecionarTurma(turma, botao) {
+    document.querySelectorAll(".botao-turma").forEach(b => b.classList.remove("ativo"));
+    botao.classList.add("ativo");
+    materiaAtual.textContent = turma.nome;
+    localAtual.textContent = turma.local;
+    horarioAtual.textContent = turma.horario;
+    montarTabelaTurma(turma.nome);
+    sessionStorage.setItem("turmaSelecionada", turma.nome);
+}
+
+function montarTabelaTurma(nomeTurma) {
     const divDocente = document.querySelector("#docentes");
     const divDiscente = document.querySelector("#discentes");
-
-    let turma;
-
-    for(let i = 0; i < TURMAS.length; i++) {
-        if(TURMAS[i][0] === materia)
-            turma = TURMAS[i];
-    }
-
+    const turma = TURMAS.find(t => t.nome === nomeTurma);
+    if (!turma) return;
     divDocente.innerHTML = "";
     divDiscente.innerHTML = "";
-
-    const h1Docente = document.querySelector("#h1-docentes");
-    h1Docente.textContent = "Docente (" + contadorDePapeis("docente", turma) + ")";
-
-    const h1Discente = document.querySelector("#h1-discentes");
-    h1Discente.textContent = "Discente (" + contadorDePapeis("discente", turma) + ")";
-
-    turma.forEach(integrante => {
-        if(integrante === materia)
-            return;
-        
-        let div = (integrante.papel === "DOCENTE") ? divDocente : divDiscente;
-        let subdiv = document.createElement("div");
-        let foto = document.createElement("img");
-        let nome = document.createElement("p");
-        let matricula = document.createElement("p");
-        let curso = document.createElement("p");
-        let departamento = document.createElement("p");
-        let formacao = document.createElement("p");
-        let email = document.createElement("p");
-
-        subdiv.classList.add("subdiv");
-
-        foto.src = integrante.foto;
-        subdiv.appendChild(foto);
-
-        nome.textContent = integrante.nome;
-        subdiv.appendChild(nome);
-
-        if (integrante.papel === "DOCENTE") {
-            departamento.textContent = integrante.departamento;
-            subdiv.appendChild(departamento);
-
-            formacao.textContent = integrante.formacao;
-            subdiv.appendChild(formacao);
-        }
-        else {
-            matricula.textContent = integrante.departamento;
-            subdiv.appendChild(matricula);
-
-            curso.textContent = integrante.formacao;
-            subdiv.appendChild(curso);
-        }
-
-        email.textContent = integrante.email;
-        subdiv.appendChild(email);
-
-        div.appendChild(subdiv);
-    })
+    document.querySelector("#h1-docentes").textContent = `Docentes (${turma.docentes.length})`;
+    document.querySelector("#h1-discentes").textContent = `Discentes (${turma.discentes.length})`;
+    turma.docentes.forEach(docente => {
+        const div = criarCard(docente);
+        divDocente.appendChild(div);
+    });
+    turma.discentes.forEach(discente => {
+        const div = criarCard(discente);
+        divDiscente.appendChild(div);
+    });
 }
 
-function contadorDePapeis(papel, turma) {
-    let cont = 0;
-    papel = papel.toUpperCase();
-    turma.forEach(integrante => {
-        if (integrante.papel === papel)
-            cont++;
-    })
-    return cont;
+function criarCard(pessoa) {
+    const div = document.createElement("div");
+    const foto = document.createElement("img");
+    const nome = document.createElement("p");
+    nome.classList.add("nome");
+    const linhaExtra1 = document.createElement("p");
+    const linhaExtra2 = document.createElement("p");
+    const email = document.createElement("p");
+    div.classList.add("pessoa");
+    foto.src = pessoa.foto;
+    div.appendChild(foto);
+    nome.textContent = pessoa.nome;
+    div.appendChild(nome);
+    if (pessoa.papel === "DOCENTE") {
+        linhaExtra1.textContent = pessoa.departamento;
+        linhaExtra2.textContent = pessoa.formacao;
+    } else {
+        linhaExtra1.textContent = pessoa.matricula;
+        linhaExtra2.textContent = pessoa.curso;
+    }
+    div.appendChild(linhaExtra1);
+    div.appendChild(linhaExtra2);
+    email.textContent = pessoa.email;
+    div.appendChild(email);
+    return div;
 }
+
+window.addEventListener("load", () => {
+    const turmaSalva = sessionStorage.getItem("turmaSelecionada");
+    if (turmaSalva) {
+        const botao = [...document.querySelectorAll(".botao-turma")].find(b => b.textContent === turmaSalva);
+        const turma = TURMAS.find(t => t.nome === turmaSalva);
+        if (botao && turma) selecionarTurma(turma, botao);
+    }
+});
