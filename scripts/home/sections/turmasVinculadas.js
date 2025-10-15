@@ -77,19 +77,6 @@ const TURMAS = [
     }
 ];
 
-const listaTurmas = document.querySelector("#turmas .lista-turmas");
-const materiaAtual = document.querySelector(".value.materia");
-const localAtual = document.querySelector(".value.local");
-const horarioAtual = document.querySelector(".value.horario");
-
-TURMAS.forEach(turma => {
-    const botao = document.createElement("button");
-    botao.textContent = turma.nome;
-    botao.classList.add("botao-turma");
-    botao.addEventListener("click", () => selecionarTurma(turma, botao));
-    listaTurmas.appendChild(botao);
-});
-
 function selecionarTurma(turma, botao) {
     document.querySelectorAll(".botao-turma").forEach(b => b.classList.remove("ativo"));
     botao.classList.add("ativo");
@@ -147,10 +134,28 @@ function criarCard(pessoa) {
 }
 
 window.addEventListener("load", () => {
+    
+});
+function initTurmas() {
+
+    const listaTurmas = document.querySelector("#turmas .lista-turmas");
+    const materiaAtual = document.querySelector(".value.materia");
+    const localAtual = document.querySelector(".value.local");
+    const horarioAtual = document.querySelector(".value.horario");
+
+    TURMAS.forEach(turma => {
+    const botao = document.createElement("button");
+        botao.textContent = turma.nome;
+        botao.classList.add("botao-turma");
+        botao.addEventListener("click", () => selecionarTurma(turma, botao));
+        listaTurmas.appendChild(botao);
+    });
+
     const turmaSalva = sessionStorage.getItem("turmaSelecionada");
     if (turmaSalva) {
         const botao = [...document.querySelectorAll(".botao-turma")].find(b => b.textContent === turmaSalva);
         const turma = TURMAS.find(t => t.nome === turmaSalva);
         if (botao && turma) selecionarTurma(turma, botao);
     }
-});
+    
+}

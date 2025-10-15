@@ -1,3 +1,4 @@
+let idx = 0;
 const notasBD = [
     {
         "ano": "2023",
@@ -16,24 +17,11 @@ const notasBD = [
     }
 ];
 
-const botaoBoletim = document.querySelector("#botaoAcessoBoletim");
-const botaoEsq = document.querySelector("#botaoEsq");
-const botaoDir = document.querySelector("#botaoDir");
-
-let anoAtual = new Date().getFullYear();
-let idx = notasBD.findIndex(nota => nota.ano === String(anoAtual));
-
-if (idx === -1) idx = notasBD.length - 1;
-
-botaoBoletim.addEventListener('click', () => preencherTabela());
-botaoEsq.addEventListener('click', () => passarAno(-1));
-botaoDir.addEventListener('click', () => passarAno(1));
-
 function passarAno(incremento) {
-    let novoIdx = idx + incremento;
+    let novoidx = idx + incremento;
 
-    if (novoIdx >= 0 && novoIdx < notasBD.length) {
-        idx = novoIdx;
+    if (novoidx >= 0 && novoidx < notasBD.length) {
+        idx = novoidx;
     }
 
     preencherTabela();
@@ -81,5 +69,19 @@ function preencherTabela() {
     }
 }
 
+function initTabela() {
 
-document.addEventListener("DOMContentLoaded", preencherTabela);
+    const botaoBoletim = document.querySelector("#botaoAcessoBoletim");
+    const botaoEsq = document.querySelector("#botaoEsq");
+    const botaoDir = document.querySelector("#botaoDir");
+
+    let anoAtual = new Date().getFullYear();
+    idx = notasBD.findIndex(nota => nota.ano === String(anoAtual));
+
+    if (idx === -1) idx = notasBD.length - 1;
+
+    botaoBoletim.addEventListener('click', () => preencherTabela());
+    botaoEsq.addEventListener('click', () => passarAno(-1));
+    botaoDir.addEventListener('click', () => passarAno(1));
+    preencherTabela();
+}

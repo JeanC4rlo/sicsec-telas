@@ -4,6 +4,7 @@ function highlightBibliotecaOption(tabId) {
     buttons.forEach(button => {
         if (button.dataset.tab === tabId)
             button.classList.add("ativo");
+            
         else
             button.classList.remove("ativo");
     });
@@ -22,7 +23,8 @@ function openBibliotecaTab(tabId) {
     localStorage.setItem("bibliotecaSecaoAtiva", tabId);
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+function initBiblioteca() {
+
     const bibliotecaButtons = document.querySelectorAll("#biblioteca header button");
 
     bibliotecaButtons.forEach(button => {
@@ -32,6 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
         button.addEventListener("click", e => {
             e.preventDefault();
             const targetTab = button.dataset.tab;
+            console.log(targetTab);
             highlightBibliotecaOption(targetTab);
             openBibliotecaTab(targetTab);
         });
@@ -46,4 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
         highlightBibliotecaOption("acervo");
         openBibliotecaTab("acervo");
     }
-});
+}
+
+initBiblioteca();
