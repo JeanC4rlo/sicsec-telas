@@ -1,3 +1,22 @@
+async function loadTabs() {
+
+    initAcervo();
+    
+    let matricula = new URL(window.location.href).searchParams.get("matricula");
+    if (matricula) {
+        
+        return
+    }
+    
+    const tabMeusLivros = document.querySelector(".tab#meusLivros")
+    const resposta = await fetch(`frag/login.html`);
+    const _html = await resposta.text();
+    tabMeusLivros.innerHTML = _html;
+    tabMeusLivros.classList += " login";
+    initLoginBiblioteca();
+
+}
+
 function highlightBibliotecaOption(tabId) {
     const buttons = document.querySelectorAll("#biblioteca header button");
 
@@ -11,10 +30,10 @@ function highlightBibliotecaOption(tabId) {
 }
 
 function openBibliotecaTab(tabId) {
-    const tabs = document.querySelectorAll("#biblioteca .wrapper > div");
 
+    const tabs = document.querySelectorAll(`.tab`);
     tabs.forEach(tab => {
-        if (tab.classList.contains(tabId))
+        if (tab.id === tabId)
             tab.classList.add("ativo");
         else
             tab.classList.remove("ativo");
@@ -25,8 +44,10 @@ function openBibliotecaTab(tabId) {
 
 function initBiblioteca() {
 
-    const bibliotecaButtons = document.querySelectorAll("#biblioteca header button");
+    loadTabs();
 
+
+    const bibliotecaButtons = document.querySelectorAll("#biblioteca header button");
     bibliotecaButtons.forEach(button => {
         if (!button.dataset.tab)
             button.dataset.tab = button.textContent.trim().toLowerCase();
@@ -34,7 +55,6 @@ function initBiblioteca() {
         button.addEventListener("click", e => {
             e.preventDefault();
             const targetTab = button.dataset.tab;
-            console.log(targetTab);
             highlightBibliotecaOption(targetTab);
             openBibliotecaTab(targetTab);
         });
@@ -49,6 +69,5 @@ function initBiblioteca() {
         highlightBibliotecaOption("acervo");
         openBibliotecaTab("acervo");
     }
-}
 
-initBiblioteca();
+}
