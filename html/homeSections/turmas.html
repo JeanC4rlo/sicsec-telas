@@ -1,32 +1,48 @@
-<table border="solid">
-    <thead>Turmas Vinculadas</thead>
-    <tbody>
-        <tr>
-            <th>Componente Curricular</th>
-            <th>Local</th>
-            <th>Horário</th>
-        </tr>
-        <tr>
-            <td><span class="abre-janela">Português</span></td>
-            <td>Local 1</td>
-            <td>Horário 1</td>
-        </tr>
-        <tr>
-            <td><span class="abre-janela">Matemática</span></td>
-            <td>Local 2</td>
-            <td>Horário 2</td>
-        </tr>
+<header>
+    <div class="info-turma-wrapper">
+        <h2>Informações da turma atual</h2>
+        <div class="info-turma">
+            <div class="label-wrapper">
+                <img src="imagens/home/materia.svg" alt="">
+                <div class="info">
+                    <span class="label">Matéria</span>
+                    <span class="value materia">Nenhuma</span>
+                </div>
+            </div>
 
-    </tbody>
-</table>
-<nav>
-    <a href="" data-tab="perfil">Perfil</a><br>
-    <a href="" data-tab="noticias">Notícias</a><br>
-    <a href="" data-tab="materias">Matérias</a><br>
-</nav>
+            <div class="label-wrapper">
+                <img src="imagens/home/local.svg" alt="">
+                <div class="info">
+                    <span class="label">Local</span>
+                    <span class="value local">Nenhum</span>
+                </div>
+            </div>
+
+            <div class="label-wrapper">
+                <img src="imagens/home/horario.svg" alt="">
+                <div class="info">
+                    <span class="label">Horário</span>
+                    <span class="value horario">Nenhum</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="lista-turmas-wrapper">
+        <h2>Lista de turmas vinculadas</h2>
+        <div class="lista-turmas"></div>
+    </div>
+
+</header>
 <div id="integrantes-turma">
-    <h1 id="h1-docentes"></h1>
-    <div id="docentes"></div>
-    <h1 id="h1-discentes"></h1>
-    <div id="discentes"></div>
+    <div class="docentes-wrapper">
+        <h1 id="h1-docentes"></h1>
+        <div id="docentes"></div>
+    </div>
+    <div class="discentes-wrapper">
+        <h1 id="h1-discentes"></h1>
+        <div id="discentes"></div>
+    </div>
 </div>
+</div>
+</section>
