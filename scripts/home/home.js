@@ -28,6 +28,8 @@ function loadScripts() {
     initBiblioteca();
     initTabela();
     initTurmas();
+    initBolsas();
+    initBolsasTabs();
 }
 
 async function loadSection(section) {
@@ -42,7 +44,7 @@ async function loadSection(section) {
 
     window.sectionsToLoad--;
 
-    if (!sectionsToLoad) loadScripts();
+    if (!window.sectionsToLoad) loadScripts();
 
 }
 
