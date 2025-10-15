@@ -1,33 +1,51 @@
 <header>
     <button data-tab="acervo">Acervo</button>
-    <button data-tab="login">Login</button>
+    <button data-tab="meusLivros">Meus Livros</button>
 </header>
 
 <!-- Seções da biblioteca -->
-<div class="acervo"></div>
-<div class="login">
-    <h1>Login</h1>
-    <form action="">
-        <div class="matricula-wrapper">
-            <h2>Matrícula</h2>
-            <div class="matricula">
-                <select name="" id="">
-                    <option value="C">Médio e Técnico</option>
-                    <option value="G">Graduação</option>
-                    <option value="P">Pós-graduação</option>
-                    <option value="D">Docente</option>
-                    <option value="S">Professor substituto</option>
-                    <option value="T">Técnico-Administrativo</option>
-                </select>
-                <label>
-                    <input type="text" />
-                </label>
-            </div>
-        </div>
-        <label>
-            <h2>Senha</h2>
-            <input type="text" />
-        </label>
-        <button type="submit" class="logar">Entrar</button>
-    </form>
+<div class="tab" id="acervo">
+
+</div>
+
+<div class="tab" id="meusLivros">
+
+    <div id="reservas">
+        <ul>
+            <li class="cardLivro">
+                <img src="../imagens/livros/senhor-dos-aneis.png" alt="Capa do livro">
+                <div class="info">
+                    <p><strong>Autor:</strong> J. R. R. Tolkien</p>
+                    <p><strong>Gênero:</strong> Fantasia</p>
+                </div>
+                <div class="title">O Senhor dos Anéis </div>
+                <button>Cancelar Reserva</button>
+            </li>
+
+            <li class="cardLivro">
+                <img src="../imagens/livros/dom-casmurro.png" alt="Capa do livro">
+                <div class="info">
+                    <p><strong>Autor:</strong> Machado de Assis</p>
+                    <p><strong>Gênero:</strong> Romance</p>
+                </div>
+                <div class="title">Dom Casmurro</div>
+                <button>Cancelar Reserva</button>
+            </li>
+        </ul>
+    </div>
+
+    <div id="aDevolver">
+        <ul>
+            <li class="cardLivro">
+                <img src="../imagens/livros/1984.png" alt="Capa do livro">
+                <div class="info">
+                    <p><strong>Autor:</strong> George Orwell</p>
+                    <p><strong>Devolver até:</strong> 20/10/2025</p>
+                </div>
+                <div class="title">1984</div>
+                <button>Devolver</button>
+            </li>
+        </ul>
+    </div>
+
 </div>

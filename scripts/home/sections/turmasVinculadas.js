@@ -82,8 +82,6 @@ const TURMAS = [
 ];
 
 function selecionarTurma(turma, botao) {
-    console.log(turma);
-    console.log(botao);
     document.querySelectorAll(".botao-turma").forEach(b => b.classList.remove("ativo"));
     botao.classList.add("ativo");
     materiaAtual.textContent = turma.nome;
@@ -151,7 +149,6 @@ function initTurmas() {
     horarioAtual = document.querySelector(".value.horario");
 
     TURMAS.forEach(turma => {
-        console.log(turma);
         const botao = document.createElement("button");
         botao.textContent = turma.nome;
         botao.classList.add("botao-turma");
