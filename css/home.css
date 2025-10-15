@@ -359,7 +359,8 @@ td {
     gap: 1rem;
     margin-top: 1rem;
     height: 100%;
-    overflow: scroll;
+    overflow-x: scroll;
+    overflow-y: hidden;
 }
 
 .lista-turmas button {
@@ -398,6 +399,11 @@ td {
     padding: 2rem 5vw;
     gap: 2rem;
     width: 100%;
+
+    /* removemos height: 100vh */
+    max-height: 100vh; /* opcional, apenas limita */
+    overflow-y: auto; /* scroll interno se necessário */
+    box-sizing: border-box;
 }
 
 #integrantes-turma h1 {
@@ -405,6 +411,7 @@ td {
     margin-bottom: 1rem;
 }
 
+/* Containers internos de membros */
 #docentes,
 #discentes {
     display: flex;

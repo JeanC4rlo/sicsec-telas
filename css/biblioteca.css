@@ -99,7 +99,8 @@
 }
 
 .cardAcervo button:hover {
-    background-color: var(--primary-dark);
+    background-color: var(--primary-hover, #0c66c2);
+    transform: scale(1.03);
 }
 
 /* Botão de reserva com destaque */
@@ -110,7 +111,8 @@
 
 
 .cardAcervo .btn-reservar:hover {
-    background-color: var(--secondary-dark, #247d3b);
+    background-color: var(--primary-hover, #0c66c2);
+    transform: scale(1.03);
 }
 
 
