@@ -12,19 +12,24 @@ function criarBolsa(bolsa, container) {
         <p><strong>Centro:</strong> ${bolsa.centro || ""}</p>
         <p><strong>Departamento:</strong> ${bolsa.departamento || ""}</p>
         <p><strong>Tipo de Bolsa:</strong> ${bolsa.tipo_bolsa || ""}</p>
-        <p><strong>Status:</strong> ${bolsa.status || ""}</p>
         <p><strong>Área de Conhecimento:</strong> 
             ${area.grande_area || ""} - ${area.area || ""} - ${area.subarea || ""} ${area.especialidade ? "- " + area.especialidade : ""}
         </p>
-        <div class="acoes">
-            <button class="ler-mais">
-                <img src="../imagens/home/artigo.svg">
-                Ver mais
-            </button>
-            <button class="interesse">
-                <img src="../imagens/home/check.svg">
-                ${bolsa.registrada ? "Registrado" : "Registrar interesse"}
-            </button>
+        <div class="informacao-adicional">
+            <div class="status">
+                <span class="status-indicador ${formatarClasseStatus(bolsa.status)}"></span>
+                ${bolsa.status || ""}
+            </div>
+            <div class="acoes">
+                <button class="ler-mais">
+                    <img src="../imagens/home/artigo.svg">
+                    Ver mais
+                </button>
+                <button class="interesse">
+                    <img src="../imagens/home/check.svg">
+                    ${bolsa.registrada ? "Registrado" : "Registrar interesse"}
+                </button>
+            </div>
         </div>
     `;
     container.appendChild(card);
@@ -40,6 +45,16 @@ function criarBolsa(bolsa, container) {
     btnInteresse.addEventListener('click', () => {
         registrarInteresseBolsa(bolsa, btnInteresse);
     });
+}
+
+function formatarClasseStatus(status) {
+    if (!status) return "";
+    
+    const s = status.toLowerCase();
+    if (s.includes("conclu") || s.includes("final")) return "status-concluido";
+    if (s.includes("andamento")) return "status-andamento";
+    if (s.includes("cancel")) return "status-cancelado";
+    return "status-desconhecido";
 }
 
 function exibirDetalhesBolsa(bolsa) {
@@ -60,7 +75,9 @@ function exibirDetalhesBolsa(bolsa) {
 
     containerMais.innerHTML = `
         <div class="detalhes-bolsa">
-            <button class="voltar">← Voltar</button>
+            <button class="voltar">
+                <img src="../imagens/home/voltar.svg"> Voltar
+            </button>
             <h2>${bolsa.titulo || ""}</h2>
             <p><strong>Código:</strong> ${bolsa.codigo || ""}</p>
             <p><strong>Aluno/Discente:</strong> ${bolsa.discente || ""}</p>
