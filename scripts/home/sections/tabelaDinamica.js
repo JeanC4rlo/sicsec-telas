@@ -31,24 +31,36 @@ function preencherTabela() {
     const tabela = document.getElementById("tabelaBoletim");
     const tbody = tabela.querySelector("tbody");
     const ano = tabela.querySelector("div > p");
+    const botaoEsq = document.querySelector("#botaoEsq");
+    const botaoDir = document.querySelector("#botaoDir");
+
     let notas = notasBD[idx];
 
     tbody.innerHTML = "";
     ano.textContent = notas.ano;
+
+    if (idx === 0) {
+        botaoEsq.classList.add("desativado");
+    } else {
+        botaoEsq.classList.remove("desativado");
+    }
+
+    if (idx === notasBD.length - 1) {
+        botaoDir.classList.add("desativado");
+    } else {
+        botaoDir.classList.remove("desativado");
+    }
 
     for (let i = 0; i < notas.materias.length; i++) {
         const tr = document.createElement("tr");
 
         let soma = 0;
         notas.materias[i].forEach((v, j) => {
-            if (j === 0) {
-                const td = document.createElement("td");
-                td.textContent = v;
-                tr.appendChild(td);
-            } else {
-                const td = document.createElement("td");
-                td.textContent = v;
-                tr.appendChild(td);
+            const td = document.createElement("td");
+            td.textContent = v;
+            tr.appendChild(td);
+
+            if (j !== 0) {
                 soma += Number(v);
             }
         });
@@ -68,6 +80,7 @@ function preencherTabela() {
         tbody.appendChild(tr);
     }
 }
+
 
 function initTabela() {
 

@@ -159,67 +159,95 @@ section.ativo {
 
 #boletim .wrapper {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     padding: 2rem 5vw;
+    gap: 2rem;
+    width: 100%;
+    max-width: 1000px;
 }
 
 #boletim table {
-    border: 2px solid;
+    border: 2px solid var(--primary);
     border-collapse: collapse;
     width: 100%;
-    max-width: 1000px;
+    max-width: 100%;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-radius: 0.5rem;
 }
 
 #boletim caption {
     font-size: 24pt;
     font-weight: bold;
     margin-bottom: 1rem;
-}
-
-#th-cabecalho-flex {
-    padding: 0 !important;
+    color: var(--primary);
 }
 
 #boletim table th,
 td {
     padding: 10px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+#boletim table th {
+    background-color: var(--primary);
+    border: 1px solid var(--bg-primary);
+    color: white;
+}
+
+#boletim table td {
+    background-color: var(--bg-primary);
+    border: 1px solid black;
+}
+
+#boletim table tr:nth-child(even) td {
+    background-color: var(--bg-secondary);
+}
+
+#boletim table tr:hover {
+    background-color: var(--primary);
+    color: white;
 }
 
 .cabecalho-flex {
     display: flex;
-    justify-content: center;
-    gap: 4rem;
+    justify-content: space-between;
     background-color: var(--primary);
     color: white;
-    border: none;
+    padding: 1rem 2rem;
     width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-    padding: 10px;
+    border-radius: 0.5rem;
 }
 
 .cabecalho-flex button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-color: transparent;
     border: none;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: 200ms ease all;
     filter: brightness(0) invert(1);
 }
 
 .cabecalho-flex button:hover {
     cursor: pointer;
+    color: var(--secondary);
 }
 
-#biblioteca .wrapper {
-    display: grid;
-    grid-template-rows: auto 1fr;
-    padding: 2rem 5vw;
+.cabecalho-flex button:focus {
+    outline: none;
 }
 
-#biblioteca .wrapper>div:not(.ativo) {
-    display: none;
+.cabecalho-flex button.desativado {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+#ano {
+    user-select: none;
 }
 
 #biblioteca .wrapper header {
