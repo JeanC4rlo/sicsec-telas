@@ -141,12 +141,12 @@ select:focus {
     color: white;
 }
 
-section {
+main > section {
     height: 100vh;
     display: none;
 }
 
-section.ativo {
+main > section.ativo {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -155,6 +155,287 @@ section.ativo {
 .wrapper {
     height: 100%;
     width: 100%;
+}
+
+/* Personalização da Homepage */
+#homepage .wrapper {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    padding: 2rem 5vw;
+    height: 100%;
+    width: 100%;
+}
+
+.content {
+    flex-grow: 1;
+    display: flex;
+    gap: 2rem;
+}
+
+.main-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.perfil {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border-radius: .5rem;
+    overflow: hidden;
+}
+
+.section-box {
+    background-color: white;
+    border: 2px solid var(--primary);
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.section-header {
+    background-color: var(--primary);
+    color: white;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section-header h2 {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.section-header .ano {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.turmas-vinculadas table,
+.minhas-atividades table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.turmas-vinculadas th, 
+.minhas-atividades th {
+    background-color: var(--secondary);
+    padding: 1rem 1.5rem;
+    text-align: center;
+    color: white;
+    border-right: 1px solid var(--border-color);
+}
+
+.turmas-vinculadas th:last-child,
+.minhas-atividades th:last-child {
+    border-right: none;
+}
+
+.turmas-vinculadas td, 
+.minhas-atividades td {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+.turmas-vinculadas tr:last-child td,
+.minhas-atividades tr:last-child td {
+    border-bottom: none;
+}
+
+.minhas-atividades .data-col {
+    width: 12rem;
+}
+
+.minhas-atividades td > span {
+    display: block;
+}
+
+.minhas-atividades .disciplina {
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+    color: #333;
+}
+
+.minhas-atividades .avaliacao,
+.minhas-atividades .questionario {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+/* --- Seção Notícias --- */
+.noticias-content {
+    position: relative;
+    font-size: 0.9rem;
+    padding: 1.5rem;
+    min-height: 8rem;
+}
+
+.titulo-noticia {
+    color: var(--secondary);
+    font-weight: bold;
+    margin-bottom: 1rem;
+    padding: 0;
+    background-color: transparent;
+    font-size: 1rem;
+}
+
+.detalhe-noticia {
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.texto-noticia {
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.navegacao-noticias {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--primary);
+}
+
+.navegacao-noticias i {
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 0.25rem;
+    transition: 200ms ease all;
+}
+
+.navegacao-noticias i:hover {
+    color: var(--secondary);
+    transform: scale(1.1);
+}
+
+.navegacao-noticias span {
+    font-size: 0.8rem;
+    padding: 0.25rem 0.75rem;
+    background-color: var(--primary);
+    color: white;
+    border-radius: 0.25rem;
+    transition: 200ms ease all;
+    cursor: pointer;
+}
+
+.navegacao-noticias span:hover {
+    background-color: var(--secondary);
+}
+
+.navegacao-noticias span.ativo {
+    background-color: var(--secondary);
+}
+
+/* --- Perfil --- */
+.perfil-header {
+    background-color: var(--primary);
+    color: white;
+    padding: 1rem 1.5rem;
+}
+
+.perfil-header h2 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+}
+
+.perfil-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: var(--secondary);
+    border: 2px solid var(--primary);
+    padding: 1.5rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: white;
+}
+
+.avatar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .5rem;
+    border: 4px solid white;
+    border-radius: 50%;
+}
+
+.avatar-placeholder {
+    max-width: 250px;
+    max-height: 250px;
+    min-width: 250px;
+    min-height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.nome-perfil {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin: 1rem 0;
+    color: white;
+}
+
+.dados-institucionais {
+    text-align: left;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.dados-institucionais p {
+    margin: 0 0 0.5rem 0;
+}
+
+.dados-institucionais .email {
+    color: white;
+    font-style: italic;
+}
+
+.btn-editar-perfil {
+    background-color: white;
+    color: #333;
+    border: 2px solid white;
+    padding: 0.75rem 2rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 0.25rem;
+    transition: 200ms ease all;
+    width: 100%;
+}
+
+.btn-editar-perfil:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+}
+
+/* Estados dos botões de navegação */
+#prevNoticia,
+#nextNoticia {
+    cursor: pointer;
+    padding: 0.25rem;
+}
+
+#btnParar.ativo {
+    background-color: var(--secondary);
+}
+
+/* Hover effects para tabelas */
+.turmas-vinculadas tr:hover,
+.minhas-atividades tr:hover {
+    background-color: #f8f9fa;
 }
 
 #boletim .wrapper {
@@ -428,9 +709,8 @@ td {
     gap: 2rem;
     width: 100%;
 
-    /* removemos height: 100vh */
-    max-height: 100vh; /* opcional, apenas limita */
-    overflow-y: auto; /* scroll interno se necessário */
+    max-height: 100vh;
+    overflow-y: auto;
     box-sizing: border-box;
 }
 

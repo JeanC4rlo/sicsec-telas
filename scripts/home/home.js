@@ -30,6 +30,7 @@ function loadScripts() {
     initTurmas();
     initBolsas();
     initBolsasTabs();
+    initHomepage();
 }
 
 async function loadSection(section) {
@@ -72,8 +73,8 @@ document.addEventListener("DOMContentLoaded", () => {
         openSection(ultimaSecao);
     }  
     else {
-        highlightOption("boletim")
-        openSection("boletim");
+        highlightOption("homepage")
+        openSection("homepage");
     }
 
 });
