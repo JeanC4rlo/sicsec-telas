@@ -81,16 +81,6 @@ const TURMAS = [
     }
 ];
 
-function selecionarTurma(turma, botao) {
-    document.querySelectorAll(".botao-turma").forEach(b => b.classList.remove("ativo"));
-    botao.classList.add("ativo");
-    materiaAtual.textContent = turma.nome;
-    localAtual.textContent = turma.local;
-    horarioAtual.textContent = turma.horario;
-    montarTabelaTurma(turma.nome);
-    sessionStorage.setItem("turmaSelecionada", turma.nome);
-}
-
 function montarTabelaTurma(nomeTurma) {
     const divDocente = document.querySelector("#docentes");
     const divDiscente = document.querySelector("#discentes");
@@ -141,8 +131,24 @@ window.addEventListener("load", () => {
     
 });
 
-function initTurmas() {
+function selecionarTurma(turma, botao) {
+    document.querySelectorAll(".botao-turma").forEach(b => b.classList.remove("ativo"));
+    botao.classList.add("ativo");
+    materiaAtual.textContent = turma.nome;
+    localAtual.textContent = turma.local;
+    horarioAtual.textContent = turma.horario;
+    montarTabelaTurma(turma.nome);
+    
+    // Adiciona classe visivel ao elemento de ações
+    const acoesElement = document.querySelector("#turmas header .acoes");
+    if (acoesElement) {
+        acoesElement.classList.add("visivel");
+    }
+    
+    sessionStorage.setItem("turmaSelecionada", turma.nome);
+}
 
+function initTurmas() {
     listaTurmas = document.querySelector("#turmas .lista-turmas");
     materiaAtual = document.querySelector(".value.materia");
     localAtual = document.querySelector(".value.local");
@@ -160,7 +166,14 @@ function initTurmas() {
     if (turmaSalva) {
         const botao = [...document.querySelectorAll(".botao-turma")].find(b => b.textContent === turmaSalva);
         const turma = TURMAS.find(t => t.nome === turmaSalva);
-        if (botao && turma) selecionarTurma(turma, botao);
+        if (botao && turma) {
+            selecionarTurma(turma, botao);
+        }
+    } else {
+        // Remove a classe visivel se não houver turma selecionada
+        const acoesElement = document.querySelector("#turmas header .acoes");
+        if (acoesElement) {
+            acoesElement.classList.remove("visivel");
+        }
     }
-    
 }

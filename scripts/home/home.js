@@ -31,6 +31,7 @@ function loadScripts() {
     initBolsas();
     initBolsasTabs();
     initHomepage();
+    initTurmasTabs();
 }
 
 async function loadSection(section) {

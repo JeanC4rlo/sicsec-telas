@@ -118,6 +118,7 @@ input {
     padding: 1rem;
     font-size: 1rem;
     transition: 500ms ease all;
+    width: 100%;
 }
 
 input:focus {
@@ -531,33 +532,70 @@ td {
     user-select: none;
 }
 
-#biblioteca .wrapper header {
+#biblioteca .wrapper {
     display: flex;
-    justify-content: center;
-    height: 4rem;
-    padding: .5rem;
-    gap: .5rem;
-}
-
-#biblioteca .wrapper header button {
     width: 100%;
-    background-color: var(--primary);
-    color: white;
-    border: none;
+    height: 100%;
 }
 
-#biblioteca .wrapper header button.ativo {
+#biblioteca header {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
     background-color: var(--secondary);
-    font-weight: bold;
+    color: white;
+    padding: 2rem;
+    justify-content: center;
 }
 
-#biblioteca .wrapper header button:hover {
+#biblioteca header h2 {
+    text-wrap: nowrap;
+    margin-bottom: 1rem;
+}
+
+#biblioteca header button {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 1.15rem;
+    filter: brightness(0) invert(1);
+    transition: 200ms ease all;
+}
+
+#biblioteca header button:hover {
+    margin-left: 1rem;
     cursor: pointer;
 }
 
-#biblioteca .wrapper>div {
-    margin: auto 0;
-    padding: 1rem 5vw;
+#biblioteca header button.ativo {
+    font-weight: bold;
+}
+
+#biblioteca header button::before {
+    content: "▶";
+    opacity: 0;
+    transition: 200ms ease all;
+}
+
+#biblioteca header button.ativo::before {
+    opacity: 1;
+}
+
+#biblioteca .tab {
+    display: none;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 5vw;
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+}
+
+#biblioteca .tab.ativo {
+    display: flex;
 }
 
 #biblioteca #login {
@@ -565,40 +603,45 @@ td {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    min-height: 70vh;
+    padding: 2rem;
 }
 
 #biblioteca #login h1 {
-    margin: auto;
+    margin: 0 0 2rem 0;
+    color: var(--primary);
+    font-size: 2.5rem;
+    text-align: center;
 }
 
 #biblioteca #login form {
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
-    margin-top: 1rem;
-    width: 30em;
+    gap: 1.5rem;
+    width: fit-content;
     border: 2px solid var(--primary);
-    border-radius: 5%;
-    padding: 1em;
+    border-radius: 1rem;
+    padding: 2rem;
+    background: white;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    transition: 200ms ease all;
 }
 
-#biblioteca #login form>* {
-    display: grid;
-    gap: .25rem;
+#biblioteca #login form:hover {
+    box-shadow: 0 12px 35px rgba(0,0,0,0.15);
 }
 
-#biblioteca #login form input {
-    height: 2.5rem;
-    width: 100%;
+#biblioteca #login label h2 {
+    margin-bottom: .5rem;
 }
 
 .matricula-wrapper {
-    grid-template-rows: auto 1fr;
+    display: flex;
+    flex-direction: column;
 }
 
 .matricula {
-    display: grid;
-    grid-template-columns: auto 1fr;
+    display: flex;
     gap: .5rem;
 }
 
@@ -607,15 +650,302 @@ td {
     background-color: var(--primary);
     color: white;
     font-weight: bolder;
-    font-size: 11pt;
-    padding: .75rem;
-    margin-top: .5rem;
+    font-size: 1.1rem;
+    padding: 1rem 2rem;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
     transition: 200ms ease all;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .logar:hover {
-    cursor: pointer;
     background-color: var(--secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+.logar:active {
+    transform: translateY(0);
+}
+
+.cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#biblioteca .pesquisa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 2rem 5vw;
+    overflow-y: scroll;
+}
+
+#biblioteca .box-pesquisa {
+    position: sticky;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    max-width: 1000px;
+}
+
+#biblioteca .box-pesquisa label {
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+}
+
+#biblioteca .box-pesquisa label .text {
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+}
+
+#biblioteca .box-pesquisa select,
+#biblioteca .box-pesquisa input {
+    padding: 0.5rem 0.75rem;
+    border: 2px solid black;
+    border-radius: 0;
+    font-size: 1rem;
+    width: 100%;
+}
+
+#biblioteca .box-pesquisa select:focus,
+#biblioteca .box-pesquisa input:focus {
+    outline: none;
+    border: 2px solid var(--primary);
+    background-color: var(--primary);
+    color: white;
+}
+
+#biblioteca .box-pesquisa button.pesquisar {
+    padding: 0.75rem 1.5rem;
+    font-weight: bolder;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    transition: 200ms ease all;
+    cursor: pointer;
+    height: fit-content;
+}
+
+#biblioteca .box-pesquisa button.pesquisar:hover {
+    background-color: var(--secondary);
+}
+
+.livro-card {
+    background-color: white;
+    border: 2px solid #ddd;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: 200ms ease all;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.livro-card:hover {
+    border-color: var(--primary);
+    box-shadow: 0 6px 10px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+}
+
+.livro-card img {
+    width: 120px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    align-self: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.livro-card .title {
+    font-size: 1.5rem;
+    margin: 0;
+    color: var(--primary);
+    text-align: center;
+    line-height: 1.3;
+}
+
+.livro-card .info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.livro-card .info p {
+    margin: 0;
+    line-height: 1.4;
+    font-size: 0.95rem;
+}
+
+.livro-card .info strong {
+    color: #333;
+    font-weight: 600;
+}
+
+.livro-card .buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: auto;
+}
+
+.livro-card .buttons button {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 200ms ease all;
+    font-size: 0.9rem;
+}
+
+.livro-card .buttons button:first-child {
+    background-color: var(--primary);
+    color: white;
+}
+
+.livro-card .buttons button:first-child:hover {
+    background-color: var(--secondary);
+    transform: scale(1.03);
+}
+
+.livro-card .buttons button:last-child {
+    background-color: white;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+}
+
+.livro-card .buttons button:last-child:hover {
+    background-color: var(--primary);
+    color: white;
+    transform: scale(1.03);
+}
+
+/* Seção Meus Livros */
+#meusLivros {
+    background: #f8f9fa;
+    min-height: calc(100vh - 120px);
+}
+
+#meusLivros h3 {
+    color: var(--primary);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary);
+}
+
+#reservas, #aDevolver {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border: 2px solid #e9ecef;
+}
+
+#reservas > div, #aDevolver > div {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 1.5rem;
+}
+
+/* Cards de Livros - Meus Livros */
+.cardLivro {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border: 2px solid #e9ecef;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    transition: 200ms ease all;
+    position: relative;
+}
+
+.cardLivro:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.cardLivro img {
+    width: 80px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    flex-shrink: 0;
+}
+
+.cardLivro .info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+}
+
+.cardLivro .info p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.cardLivro .info strong {
+    color: #333;
+    font-weight: 600;
+}
+
+.cardLivro .title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--primary);
+    margin: 0;
+}
+
+.cardLivro button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 200ms ease all;
+    white-space: nowrap;
+}
+
+#reservas .cardLivro button {
+    background-color: #e74c3c;
+    color: white;
+}
+
+#reservas .cardLivro button:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+}
+
+#aDevolver .cardLivro button {
+    background-color: var(--primary);
+    color: white;
+}
+
+#aDevolver .cardLivro button:hover {
+    background-color: var(--secondary);
+    transform: scale(1.05);
 }
 
 #turmas .wrapper {
@@ -629,6 +959,15 @@ td {
     color: white;
     padding: 2rem;
     gap: 2rem;
+}
+
+#turmas .wrapper section {
+    display: none;
+}
+
+#turmas .wrapper section.ativo {
+    display: flex;
+    flex-direction: column;
 }
 
 .info-turma {
@@ -739,6 +1078,217 @@ td {
     opacity: 75%;
 }
 
+.acoes {
+    display: none;
+}
+
+.acoes.visivel {
+    display: block;
+}
+
+.acoes-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.acoes h2 {
+    text-wrap: nowrap;
+    margin-bottom: 1rem;
+}
+
+.acoes button {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    filter: brightness(0) invert(1);
+    font-size: 1.15rem;
+    transition: 200ms ease all;
+}
+
+.acoes button:hover {
+    margin-left: 1rem;
+    cursor: pointer;
+}
+
+.acoes button.ativo {
+    font-weight: bold;
+}
+
+.acoes button.ativo::before {
+    opacity: 1;
+}
+
+.acoes button::before {
+    content: "▶";
+    opacity: 0;
+    transition: 200ms ease all;
+}
+
+.cronograma {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.aula-bloco {
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd; 
+}
+
+.aula-titulo {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: black;
+    margin: 0 0 5px 0;
+}
+
+.aula-data {
+    font-size: 0.9em;
+    color: #4e5455;
+    margin: 0 0 15px 0;
+}
+
+.arquivos-lista {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0 0;
+}
+
+.arquivos-lista li {
+    margin-bottom: 8px;
+}
+
+.arquivos-lista a {
+    align-items: center;
+    font-size: 0.95em;
+    color: #0050a5;
+    text-decoration: none;
+    padding: 2px 0;
+    transition: color 0.2s;
+}
+
+.arquivos-lista a:hover {
+    color: #000000;
+}
+
+.frequencia {
+    width: 100%;
+    padding: 2rem;
+}
+
+.frequencia h1 {
+    font-size: 24px;
+    font-weight: normal;
+    color: #013a69;
+    margin-bottom: 0;
+    display: inline-block;
+}
+
+.frequencia .titulo-frequencia {
+    border: none;
+    height: 3px;
+    background-color: #366092;
+    margin-top: 5px;
+    width: 100%;
+}
+
+.frequencia table {
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.frequencia thead th {
+    background-color: #013a69;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px 15px;
+}
+
+.frequencia tbody tr td {
+    padding: 8px 15px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+    color: #000;
+}
+
+.frequencia tbody tr.odd {
+    background-color: #f9f9f9;
+}
+
+.nao-registrada {
+    color: red;
+}
+
+.noticias {
+    width: 100%;
+    padding: 2rem;
+}
+
+.noticias h1 {
+    font-size: 24px;
+    font-weight: normal;
+    color: #013a69;
+    margin-bottom: 0;
+    display: inline-block;
+}
+
+.noticias .titulo-noticias {
+    border: none;
+    height: 3px;
+    background-color: #366092;
+    margin-top: 5px;
+    width: 100%;
+}
+
+.noticias table {
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.noticias thead th {
+    background-color: #013a69;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px 15px;
+}
+
+.noticias .titulo {
+    width: 70%;
+}
+
+.noticias .data {
+    width: 20%;
+}
+
+.noticias .visualizar {
+    width: 10%;
+}
+
+.noticias tbody tr td {
+    padding: 8px 15px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+    color: #000;
+}
+
+.noticias tbody tr.odd {
+    background-color: #f9f9f9;
+}
+
+.noticias img {
+    text-align: center;
+    width: 30%;
+    height: 30%;
+}
+
 #bolsas .pesquisa {
     display: flex;
     flex-direction: column;
@@ -757,6 +1307,7 @@ td {
 #bolsas header {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     background-color: var(--secondary);
     color: white;
     padding: 2rem;

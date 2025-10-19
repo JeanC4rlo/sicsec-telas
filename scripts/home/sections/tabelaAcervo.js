@@ -1,7 +1,7 @@
 const path = "../data/livros.json";
+let livrosCarregados = [];
 
 function criarCardAcervo(livro) {
-
     const card = document.createElement("div");
 
     const capa = document.createElement("img");
@@ -12,20 +12,20 @@ function criarCardAcervo(livro) {
     titulo.innerHTML = livro.titulo;
     titulo.classList = "title";
     card.appendChild(titulo);
-    
+
     const info = document.createElement("div");
     card.appendChild(info);
 
     const autor = document.createElement("p");
-    autor.innerHTML = livro.autor;
+    autor.innerHTML = `<strong>Autor:</strong> ${livro.autor}`;
     info.appendChild(autor);
 
     const ano = document.createElement("p");
-    ano.innerHTML = livro.ano_publicacao;
+    ano.innerHTML = `<strong>Ano:</strong> ${livro.ano_publicacao}`;
     info.appendChild(ano);
 
     const genero = document.createElement("p");
-    genero.innerHTML = livro.genero;
+    genero.innerHTML = `<strong>Gênero:</strong> ${livro.genero}`;
     info.appendChild(genero);
 
     const divBotoes = document.createElement("div");
@@ -39,31 +39,49 @@ function criarCardAcervo(livro) {
     botaoDetalhes.innerHTML = "Detalhes";
     divBotoes.appendChild(botaoDetalhes);
 
-    card.classList = "cardAcervo";
+    card.classList = "livro-card";
     info.classList = "info";
     divBotoes.classList = "buttons";
 
     return card;
-
 }
 
 async function loadAcervo() {
+    let response = await fetch(path);
+    livrosCarregados = await response.json();
+    renderizarLivros(livrosCarregados);
+}
 
-    let response = await fetch("../data/livros.json");
-    let books = await response.json();
-    console.log(books);
+function renderizarLivros(lista) {
+    const container = document.getElementById("resultado-acervo");
+    container.innerHTML = ""; // limpa antes de renderizar
+    lista.forEach(livro => {
+        const card = criarCardAcervo(livro);
+        container.appendChild(card);
+    });
+}
 
-    let acervo = document.querySelector(".tab#acervo")
+function filtrarLivros() {
+    const campo = document.getElementById("campoPesquisa").value;
+    const texto = document.getElementById("textoPesquisa").value.toLowerCase();
 
-    books.forEach(book => {
-        let card = criarCardAcervo(book);
-        acervo.appendChild(card);
+    const resultado = livrosCarregados.filter(livro => {
+        if (campo === "todos") {
+            return Object.values(livro).some(valor =>
+                typeof valor === "string" && valor.toLowerCase().includes(texto)
+            );
+        } else {
+            const valorCampo = livro[campo];
+            return typeof valorCampo === "string" && valorCampo.toLowerCase().includes(texto);
+        }
     });
 
+    renderizarLivros(resultado);
 }
 
 function initAcervo() {
-
     loadAcervo();
 
+    const btnPesquisar = document.getElementById("btnPesquisar");
+    btnPesquisar.addEventListener("click", filtrarLivros);
 }
